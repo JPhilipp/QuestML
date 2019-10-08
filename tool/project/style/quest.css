@@ -1,0 +1,150 @@
+body
+{
+    cursor: default;
+}
+
+.footnote
+{
+    font-size: 85%;
+}
+
+.author
+{
+    font-style: italic;
+}
+
+ul
+{
+    margin-left: 20px;
+}
+
+li
+{
+    margin-bottom: 10px;
+    list-style-type: square;
+}
+
+.display
+{
+    font-variant: small-caps;
+    letter-spacing: 3px;
+}
+
+.poem
+{
+    font-style: italic;
+}
+
+img
+{
+    border: 0;
+}
+
+/*** station display ***/
+
+#stateDisplay
+{
+    background-color: #fff;
+    color: #000;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    border: 2px;
+    border-style: outset;
+    width: 340px;
+    display: none;
+    position: absolute;
+    left: 430px;
+    top: 20px;
+    height: 370px;
+}
+
+.stationDisplay
+{
+    border: 1px;
+    border-color: #000;
+    border-style: solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    margin-bottom: 10px;
+}
+
+.stationDisplay ul
+{
+    padding-left: 30px;
+}
+
+#stateDisplay h1
+{
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    background-color: #eee;
+}
+
+#stateDisplay h2
+{
+    font-size: 15px;
+    padding-left: 8px;
+    letter-spacing: 1px;
+}
+
+.listDescript
+{
+    font-style: italic;
+    font-size: 13px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+#stateDisplay li
+{
+    list-style-type: circle;
+    margin-left: 15px;
+}
+
+#stateDisplay p
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+}
+
+.statesDisplay
+{
+    border: 1px;
+    border-color: #aaa;
+    border-style: solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.numbersDisplay,
+.statesDisplay
+{
+    height: 150px;
+    overflow: auto;
+}
+
+.closeDisplay
+{
+    font-style: italic;
+    text-decoration: underline;
+    text-align: right;
+    margin: 5px;
+    font-size: 13px;
+    cursor: hand;
+}
+
+#statusNode
+{
+    width: 500px;
+    display: none;
+}

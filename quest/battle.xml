@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="false">
+
+<about>
+    <title>Battle sample</title>
+    <author>Philipp Lenssen</author>
+</about>
+
+<station id="start">
+    <text>There's a big monster in front of you blocking the path.
+    </text>
+
+    <number name="player skill" value="10"/>
+    <number name="player stamina" value="10"/>
+    
+    <number name="enemy skill" value="10"/>
+    <number name="enemy stamina" value="10"/>
+
+    <string name="after win" value="new path"/>
+
+    <choice station="battle">Let's start the battle</choice>
+</station>
+
+<station id="battle">
+    <number name="player power" value="[player skill] + {random 2, 12}"/>
+    <number name="enemy power" value="[enemy skill] + {random 2, 12}"/>
+
+    <if check="[player power] = [enemy power]">
+        <text>Both of your swords miss the other. Stamina stays the same.</text>
+        <choice station="battle">Battle again</choice>
+    </if>
+    <if check="[player power] greater [enemy power]">
+        <text>You hit the enemy and wound him.</text>
+        <number name="enemy stamina" value="[enemy stamina] - 2"/>
+        <choice station="battle result">Continue</choice>
+    </if>
+    <else>
+        <text>The enemy hits you and it hurts.</text>
+        <number name="player stamina" value="[player stamina] - 2"/>
+        <choice station="battle result">Continue</choice>
+    </else>
+</station>
+
+<station id="battle result">
+    <if check="[player stamina] lower 1">
+        <text>The enemy wounds you deadly. Game over.</text>
+    </if>
+    <if check="[enemy stamina] lower 1">
+        <text>You kill the enemy. You can continue your game.</text>
+        <choice station="[after win]">You continue</choice>
+    </if>
+    <else>
+        <text>Both of you are still standing.
+        Your Stamina is [player stamina], the enemy stamina
+        is [enemy stamina].
+        </text>
+        <choice station="battle">Battle again</choice>
+    </else>
+</station>
+
+<station id="new path">
+    <text>You're on a new path, leaving the monster behind you...
+        <break/><emphasis>This is just the beginning of the quest,
+        but this sample is over.</emphasis>
+    </text>
+</station>
+
+</quest>

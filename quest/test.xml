@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="true">
+
+<about>
+    <title>Test</title>
+    <author>Philipp Lenssen</author>
+</about>
+
+<station id="start">
+    <state name="has sword"/>
+    <state name="has diamond"/>
+    <state name="has magic staff"/>
+    <string name="player has" value="{states 'has'}"/>
+
+    <text>Your bag contains contains [player has].<break /></text>
+    <text check="[has sword]">Yes, you have a sword.<break /></text>
+    <text check="[has sceptre]">Yes, you have a sceptre.<break /></text>
+    <text check="not [has sceptre]">No, you don't have a sceptre.<break /></text>
+
+    <choice station="main">Go to main</choice>
+</station>
+
+<station id="main">
+    <text>bla bla bla</text>
+    <choice station="start">Start over</choice>
+</station>
+
+</quest>

@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest language="english" debug="false">
+
+<about>
+    <title>Bargames</title>
+    <author>Philipp Lenssen</author>
+<cover source="media/town.gif"/><intro>Being a mild-tempered fellow, you're looking for a cozy place to warm
+your heart. But it's a long way through the nightly rain and you're
+exhausted.</intro></about>
+
+
+<style>
+<background color="rgb(90%,90%,90%)"/>
+<font color="rgb(0,0,0)" family="'times new roman', serif" size="19px"/>
+<content left="20px" top="40px" width="500px"/>
+<class name="title" inherits="" style="position: absolute; left: 10px; top: 20px; font-size: 160%; font-weight: bold;"/>
+<class name="informationGold" inherits="" style="position: absolute; left: 0; top: -30px; width: 450px; color: #fff; background-image: url(media/bar.gif); background-repeat: repeat-x; text-align: right; padding: 4px; height: 20px; display: [introDisplay];"/>
+<class name="cover" inherits="" style="position: absolute; left: 10px; top: 60px;"/>
+<class name="intro" inherits="" style="position: absolute; left: 10px; top: 170px;"/>
+<class name="start" inherits="" style="position: absolute; left: 10px; top: 260px; text-decoration: underline;"/>
+</style>
+
+
+<station id="armwrestle kick chimp">
+<text>
+You kick the chimp a little under the table, to no effect.
+</text>
+<choice station="armwrestle champ loose">You give up</choice>
+</station>
+
+
+<station id="armwrestle blow air">
+<text>
+You blow some air in the monkeys face, but his grin's only
+getting bigger.
+</text>
+<choice station="armwrestle champ loose">You feel the pain creeping up your arm</choice>
+</station>
+
+
+<station id="armwrestle concentrate">
+<text>
+Did you ever manage to concentrate while wrestling a monkey?<break/>
+See.
+</text>
+<choice station="armwrestle champ loose">You give your last energy</choice>
+</station>
+
+
+<station id="armwrestle champ loose">
+<image source="media/hand.gif"/>
+<text>
+Your hand hits the hard wood with screeking PERKIMMP!<break type="strong"/>
+"Next time you should be prepared! Now give us the money."<break/>
+The big chubby guy is waiting.
+</text>
+<number name="gold" value="[gold] - 4"/>
+<choice station="armwrestle pay">Your pull some coins from your pocket</choice>
+</station>
+
+
+<station id="armwrestle pay">
+
+<if check="[gold] greater 0">
+<text>
+    "You're welcome around this table anytime... hahahaha!"
+    
+</text>
+<choice station="bar">You get back</choice>
+</if>
+<else>
+<text>
+    Hmm. Where's all the money gone too? You can't pay the
+    gentlemen...<break/>
+    "Get out, bum... <emphasis>or you'll regret putting your foot in here!</emphasis>"
+    
+</text>
+<number name="gold" value="0"/>
+<choice station="exit">You better get out fast</choice>
+</else>
+</station>
+
+
+<station id="information gold">
+<include>
+<in station="*"/>
+</include>
+<text class="informationGold">Gold: [gold]</text>
+</station>
+
+
+<station id="hush cat">
+<image source="media/cat.gif" text=""/>
+<text>
+"Away, furry creature!"<break/>
+This cat thinks you are playing games and she starts a purr.
+</text>
+<state name="tried to hush cat"/>
+<choice station="bar">You let her gnaw your shoe</choice>
+</station>
+
+
+<station id="exit">
+<text>
+You're freezing with no place to go.<break/>
+<emphasis>Could this be the end?</emphasis>
+</text>
+</station>
+
+
+<station id="entrance">
+<text>
+You arrive at a 
+shabby cot. <break/>
+ In washed out
+rusty letters you decipher a wooden pub
+sign:<break type="strong"/>
+<display>Rising Sun</display>
+<poem>
+Fever, chills and muscle ache
+Makes you wanna take a break
+Come to greet the rising sun
+From inside here
+And have some fun
+</poem>
+</text>
+<string name="introDisplay" value="block"/>
+<choice station="bar">You enter</choice>
+<choice station="exit">You wait</choice>
+</station>
+
+
+<station id="dice game roll">
+<number name="dice" value="{random 1, 6}"/>
+
+<if check="[has beer] and [dice] = [numberToRoll]">
+<text>
+    "Yes! Yes!"<break/>A [numberToRoll] it is.
+    But you can't carry another beer! Gee.
+    
+</text>
+<choice station="bar">You get back</choice>
+</if>
+
+<if check="[dice] = [numberToRoll]">
+<text>
+    "Yes! Yes!"<break/>A [numberToRoll] it is.
+    
+</text>
+<state name="has beer"/>
+<choice station="bar">You collect your free beer and get back</choice>
+</if>
+<else>
+<text>
+    Oh no...<break/>You rolled a [dice].<break/>
+    "Doesn't look like a [numberToRoll]! You're owing us a gold coin."
+    
+</text>
+<number name="gold" value="[gold] - 1"/>
+<choice station="dice pay">You pay</choice>
+</else>
+</station>
+
+
+<station id="dice game play">
+<number name="numberToRoll" value="{random 1, 6}"/>
+<text>
+"Ok, let's see if you can roll a [numberToRoll] with one try".
+Laughter shakes the round as you sheepishly grab the shiny white,
+hoping for a [numberToRoll] to face up.
+</text>
+<choice station="dice game roll">Roll</choice>
+</station>
+
+
+<station id="dice game">
+<text>
+Here's a group of medieval drunkards. Beer heals wounds
+of dragonslayers and skullslashers, but only a game of dice
+will make them forget the pain.
+</text>
+<choice station="dice game play">You take the chance to win a beer</choice>
+<choice station="back">Back</choice>
+</station>
+
+
+<station id="counter order beer">
+
+<if check="[has whisky] or [has beer]">
+<text>
+    "But you got beer already. Drink that one first, why don't you."
+    
+</text>
+<choice station="counter">The bartender has a point there</choice>
+</if>
+<else>
+<text>
+    The innkeeper hands you a beer.<break/>
+    "2 coins for the beer, sir."
+    
+</text>
+<state name="has beer"/>
+<number name="gold" value="[gold] - 2"/>
+<choice station="counter pay">You look for some coins</choice>
+</else>
+</station>
+
+
+<station id="counter pay">
+
+<if check="[gold] lower 0">
+<text>
+    "What do you mean, you can't pay? Outta here, you thief!"
+    
+</text>
+<number name="gold" value="0"/>
+<choice station="exit">You let yourself be thrown out</choice>
+</if>
+<else>
+<text>
+    "Thank you sir. Anything else?"
+    
+</text>
+<choice station="counter">You think about it</choice>
+</else>
+</station>
+
+
+<station id="counter order whisky">
+
+<if check="[has whisky] or [has beer]">
+<text>
+    "Sir, none of my business, but you already got a whisky there. How about
+    we wait until you drink it."<break/>
+    What a service!
+    
+</text>
+<choice station="counter">You think it over</choice>
+</if>
+<else>
+<text>
+    The innkeeper hands you a whisky.<break/>
+    "That'll be 2 gold coins."
+    
+</text>
+<state name="has whisky"/>
+<number name="gold" value="[gold] - 2"/>
+<choice station="counter pay">You look for some coins</choice>
+</else>
+</station>
+
+
+<station id="counter eat peanuts">
+<text>
+Hmm. These taste good. Now you're getting thirsty.
+</text>
+<state name="ate peanuts"/>
+<choice station="counter">You think about drinking something</choice>
+</station>
+
+
+<station id="counter eat more peanuts">
+
+<if check="not [has peanuts]">
+<text>
+    You had enough peanuts. No more peanuts. Maybe later. You put some in your
+    pocket.
+    
+</text>
+<state name="has peanuts"/>
+<choice station="counter">You think about what to do next</choice>
+</if>
+<else>
+<text>
+    You have enough peanuts, and your pocket is full already.
+    
+</text>
+<choice station="counter">You think about what to do next</choice>
+</else>
+</station>
+
+
+<station id="counter">
+<text>
+There's some peanuts here. The Innkeeper is ready to take an order.
+</text>
+<choice station="counter eat peanuts" check="not [ate peanuts]">Eat some peanuts</choice>
+<choice station="counter eat more peanuts" check="[ate peanuts]">Eat some more peanuts</choice>
+<choice station="counter order whisky">Order whisky</choice>
+<choice station="counter order beer">Order beer</choice>
+<choice station="drink beer" check="[has beer]">Drink the beer</choice>
+<choice station="drink whisky" check="[has whisky]">Drink the whisky</choice>
+<choice station="bar">Get back</choice>
+</station>
+
+
+<station id="bar">
+<comment>
+Action centers around this place.
+</comment>
+<text>
+About three dozen bony people are playing games in this medieval, dim-lit bar.
+They feed on pub-crawlers trying to find luck in a stormy night.
+A poor stray-cat is gnawing your old shoes.
+</text>
+<choice station="dice game">Play dice</choice>
+<choice station="armwrestle">Arm wrestle</choice>
+<choice station="hush cat" check="not [tried to hush cat]">Hush the cat</choice>
+<choice station="counter">Go to the counter</choice>
+<choice station="drink beer" check="[has beer]">Drink your beer</choice>
+<choice station="drink beer" check="[has whisky]">Drink your whisky</choice>
+<choice station="exit">Leave the bar</choice>
+</station>
+
+
+<station id="armwrestle throw peanuts">
+<text>
+You grab a peanut and throw it high above him.<break/>
+The monkeys trained instincts make his mouth go up with a
+wet snap, and his hand goes down the same instant with a hairy
+KAH-BAMP!<break type="strong"/>
+The crowd is cheering by now. The big chubby guy congratulates you
+and hands you a little golden trophy.
+</text>
+<state name="beat champ armwrestler"/>
+<state name="has golden trophy"/>
+<choice station="armwrestle">You lift it high up in the air and enjoy the applause while it lasts</choice>
+</station>
+
+
+<station id="armwrestle tell joke">
+<text>
+"Do you know the one with the monkey in a bar..."<break/>
+The big chubby guy warns you: "No talking allowed!"
+</text>
+<choice station="armwrestle champ loose">You reassemble lost energies</choice>
+</station>
+
+
+<station id="armwrestle try weak">
+
+<if check="[alcohol] lower 2">
+<image source="media/hand.gif"/>
+<text>
+<emphasis>Aargh! No chance...</emphasis><break/>
+    In just some seconds your hand hits the table with
+    a splintering WHUMP.<break/>
+</text>
+<number name="gold" value="[gold] - 4"/>
+<choice station="armwrestle pay">You pay your 4 coins debt</choice>
+</if>
+<else>
+<text>
+<emphasis>Yaaaaargghh.... yes!</emphasis><break/>
+    Aspiration, training, and a little alcohol do wonders
+    in some sports. It took some seconds but your opponents hand
+    has found its way on the table with a hefty KAPLOMBB.<break type="strong"/>
+    The chubby guy leans down.<break/>
+    "Nice job... you wanna continue?"
+</text>
+<state name="beat weak armwrestler"/>
+<choice station="armwrestle try">"Sure do."</choice>
+<choice station="armwrestle">"Enough for now. I give my hand a break."</choice>
+</else>
+</station>
+
+
+<station id="armwrestle try champ">
+<comment>
+Choices are randomized so the peanuts solution won't stick
+out on a second wrestling if the player collected them by
+then.
+</comment>
+
+<if check="{random 0, 100} greater 50">
+<text>
+    You chose one strong monkey to quarrel.
+    Your swollen red arm is uncomfortably close to the table by now
+   
+</text>
+<choice station="armwrestle kick chimp">Kick the chimps foot under the table</choice>
+<choice station="armwrestle blow air">Blow some air in his face</choice>
+<choice station="armwrestle throw peanuts" check="[has peanuts]">Throw a peanut with your left hand</choice>
+</if>
+<else>
+<text>
+    You chose one strong monkey to quarrel.
+    Your swollen red arm is uncomfortably close to the table by now
+    
+</text>
+<choice station="armwrestle tell joke">Tell a joke</choice>
+<choice station="armwrestle throw peanuts" check="[has peanuts]">Throw a peanut with your left hand</choice>
+<choice station="armwrestle concentrate">Concentrate and try harder</choice>
+</else>
+</station>
+
+
+<station id="armwrestle try">
+
+<if check="not [beat weak armwrestler]">
+<text>
+    "You think you're tough? From looking at you
+    I'd think you'd have problems wrestlin' my daughter"<break/>
+    You drop the idea of handing out a snappy reply and rather
+    focus your contestant with what you imagine must be a fierce
+    stare. The thin pale lad doesn't seem to take any notice, as
+    he's slightly on the drunk side.<break type="strong"/>
+    You lock your fists, arms on the table...<break/>
+<emphasis>"Now... !"</emphasis>
+</text>
+<choice station="armwrestle try weak">You give all you got</choice>
+</if>
+
+<if check="not [beat champ armwrestler]">
+<image source="media/monkey.gif"/>
+<text>
+    "You are ready for our champ... let's see if you can
+    handle... <emphasis>a real man!</emphasis>"<break/>
+    The chimp looks up from his banana as if to say something.
+    He sits down, reveals blinking teeth to the laughing crowd
+    and rests his hairy elbow on the wooden round.
+    <break type="strong"/>
+    You lock your fists, arms on the table...<break/>
+<emphasis>"Ready, set, an' wrestle... !"</emphasis>
+</text>
+<choice station="armwrestle try champ">You give all you got, and then some</choice>
+</if>
+<else>
+<text>
+    "Hmm, you beat our champ. No one is willing to take it up with you
+    anymore! Tough luck, kiddo."
+    
+</text>
+<choice station="bar">You retreat, midly amused</choice>
+</else>
+</station>
+
+
+<station id="armwrestle">
+<text>
+This is a dark and shabby corner even for a dark and shabby hut.
+People around this table grimly cheer as two contestants fight it out
+with each other. A chained chimp eats a banana.<break/>
+A big chubby guy bullies you onto a small wooden chair.<break/>
+"So... you wanna try to beat one of us? Costs you 4 coins if
+you loose. You get a golden trophy if you beat our champ."
+</text>
+<choice station="armwrestle try">"I think I can beat every one of you."</choice>
+<choice station="bar">"No, I was just lurking."</choice>
+</station>
+
+
+<station id="dice pay">
+
+<if check="[gold] lower 0">
+<text>
+    You have no gold left!<break/>
+    Upon hearing this, you're thrown
+    
+</text>
+<choice station="exit">...out the bar and into the rain</choice>
+</if>
+
+<if check="[gold] = 0">
+<text>
+    That was your last coin. You better not lose again!
+    
+</text>
+<choice station="dice game play">You try again</choice>
+<choice station="bar">Get back</choice>
+</if>
+<else>
+<text>
+    You jingle your coins and toss one on the table.
+    You still have [gold] left.
+    
+</text>
+<choice station="dice game play">You give it another chance</choice>
+<choice station="bar">You have enough of this game for now</choice>
+</else>
+</station>
+
+
+<station id="drink beer">
+
+<if check="[beers] lower 2">
+<text>
+    You drink the fine beer.
+    
+</text>
+<number name="alcohol" value="[alcohol] + 1"/>
+<state name="has beer" value="false"/>
+<choice station="back">Back</choice>
+</if>
+<else>
+<text>
+    You drink the fine beer and feel a little dizzy.
+    
+</text>
+<number name="alcohol" value="[alcohol] + 1"/>
+<state name="has beer" value="false"/>
+<state name="is drunk"/>
+<choice station="back">Back</choice>
+</else>
+</station>
+
+
+<station id="drink whisky">
+
+<if check="[alcohol] lower 2">
+<text>
+    You drink the fine whisky.
+    
+</text>
+<number name="alcohol" value="[alcohol] + 1"/>
+<state name="has whisky" value="false"/>
+<choice station="back">Back</choice>
+</if>
+<else>
+<text>
+    You drink the old whisky and feel a little dizzy.
+    
+</text>
+<number name="alcohol" value="[alcohol] + 1"/>
+<state name="has whisky" value="false"/>
+<state name="is drunk"/>
+<choice station="back">Back</choice>
+</else>
+</station>
+
+
+<station id="start">
+<text class="title"><strong>Bargames</strong><break/>
+</text>
+<image source="media/town.gif" class="cover"/>
+<text class="intro">
+<emphasis>Being a mild-tempered fellow, you're looking for a cozy place to warm
+your heart. But it's a long way through the
+nightly rain and you're
+exhausted.</emphasis>
+</text>
+<number name="gold" value="10"/>
+<string name="introDisplay" value="none"/>
+<choice station="entrance" class="start">Start</choice>
+</station>
+
+
+
+</quest>
+

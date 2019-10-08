@@ -1,0 +1,652 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Bargames</title>
+    <link rel="stylesheet" href="all.css" type="text/css" media="all" />
+</head>
+<body>
+
+<h1>Bargames<br /><span class="subTitle">Philipp Lenssen</span></h1>
+
+<div class="introduction">Start at <strong>-&gt; 1</strong></div>
+
+<div class="station">
+<h2>1</h2>
+<div class="text">
+<div class="image"><img src="../../media/town.gif" alt="" /></div>
+<div class="title"><strong>Bargames</strong><break/>
+</div>
+<div class="intro">
+	<em>Being a mild-tempered fellow, you're looking for a cozy place to warm
+your heart. But it's a long way through the
+nightly rain and you're
+exhausted.</em>
+</div>
+<div class="states">set number <span class="inline">gold</span> to 10<br />
+set string <span class="inline">introDisplay</span> to none<br />
+</div>
+<ul>
+<li>Start<strong> -&gt; 10</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>2</h2>
+<div class="text">
+<div>
+You kick the chimp a little under the table, to no effect.
+</div>
+<ul>
+<li>You give up<strong> -&gt; 5</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>3</h2>
+<div class="text">
+<div>
+You blow some air in the monkeys face, but his grin's only
+getting bigger.
+</div>
+<ul>
+<li>You feel the pain creeping up your arm<strong> -&gt; 5</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>4</h2>
+<div class="text">
+<div>
+Did you ever manage to concentrate while wrestling a monkey?<break/>
+See.
+</div>
+<ul>
+<li>You give your last energy<strong> -&gt; 5</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>5</h2>
+<div class="text">
+<div class="image"><img src="../../media/hand.gif" alt="" /></div>
+<div>
+Your hand hits the hard wood with screeking PERKIMMP!<break type="strong"/>
+"Next time you should be prepared! Now give us the money."<break/>
+The big chubby guy is waiting.
+</div>
+<div class="states">set number <span class="inline">gold</span> to <span class="inline">gold</span> - 4<br />
+</div>
+<ul>
+<li>Your pull some coins from your pocket<strong> -&gt; 6</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>6</h2>
+<div class="text">
+<em>If <span class="inline">gold</span> greater 0:</em><div class="branch"><div>
+    "You're welcome around this table anytime... hahahaha!"
+    
+</div>
+<ul>
+<li>You get back<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    Hmm. Where's all the money gone too? You can't pay the
+    gentlemen...<break/>
+    "Get out, bum... <em>or you'll regret putting your foot in here!</em>"
+    
+</div>
+<div class="states">set number <span class="inline">gold</span> to 0<br />
+</div>
+<ul>
+<li>You better get out fast<strong> -&gt; 9</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>7</h2>
+<div class="text">
+<div class="informationGold">Gold: <span class="inline">gold</span></div>
+<ul>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>8</h2>
+<div class="text">
+<div class="image"><img src="../../media/cat.gif" alt="" /></div>
+<div>
+"Away, furry creature!"<break/>
+This cat thinks you are playing games and she starts a purr.
+</div>
+<div class="states">set state <span class="inline">tried to hush cat</span> to true<br />
+</div>
+<ul>
+<li>You let her gnaw your shoe<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>9</h2>
+<div class="text">
+<div>
+You're freezing with no place to go.<break/>
+	<em>Could this be the end?</em>
+</div>
+<ul>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>10</h2>
+<div class="text">
+<div>
+You arrive at a 
+shabby cot. <break/>
+ In washed out
+rusty letters you decipher a wooden pub
+sign:<break type="strong"/>
+	<div class="display">Rising Sun</div>
+	<pre class="poem">
+Fever, chills and muscle ache
+Makes you wanna take a break
+Come to greet the rising sun
+From inside here
+And have some fun
+</pre>
+</div>
+<div class="states">set string <span class="inline">introDisplay</span> to block<br />
+</div>
+<ul>
+<li>You enter<strong> -&gt; 20</strong></li>
+<li>You wait<strong> -&gt; 9</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>11</h2>
+<div class="text">
+<em>If <span class="inline">has beer</span> and <span class="inline">dice</span> = <span class="inline">numberToRoll</span>:</em><div class="branch"><div>
+    "Yes! Yes!"<break/>A <span class="inline">numberToRoll</span> it is.
+    But you can't carry another beer! Gee.
+    
+</div>
+<ul>
+<li>You get back<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+<em>Else, if <span class="inline">dice</span> = <span class="inline">numberToRoll</span>:</em><div class="branch"><div>
+    "Yes! Yes!"<break/>A <span class="inline">numberToRoll</span> it is.
+    
+</div>
+<div class="states">set state <span class="inline">has beer</span> to true<br />
+</div>
+<ul>
+<li>You collect your free beer and get back<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    Oh no...<break/>You rolled a <span class="inline">dice</span>.<break/>
+    "Doesn't look like a <span class="inline">numberToRoll</span>! You're owing us a gold coin."
+    
+</div>
+<div class="states">set number <span class="inline">gold</span> to <span class="inline">gold</span> - 1<br />
+</div>
+<ul>
+<li>You pay<strong> -&gt; 27</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>12</h2>
+<div class="text">
+<div>
+"Ok, let's see if you can roll a <span class="inline">numberToRoll</span> with one try".
+Laughter shakes the round as you sheepishly grab the shiny white,
+hoping for a <span class="inline">numberToRoll</span> to face up.
+</div>
+<div class="states">set number <span class="inline">numberToRoll</span> to {random 1, 6}<br />
+</div>
+<ul>
+<li>Roll<strong> -&gt; 11</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>13</h2>
+<div class="text">
+<div>
+Here's a group of medieval drunkards. Beer heals wounds
+of dragonslayers and skullslashers, but only a game of dice
+will make them forget the pain.
+</div>
+<ul>
+<li>You take the chance to win a beer<strong> -&gt; 12</strong></li>
+<li>Back<strong> -&gt;  13</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>14</h2>
+<div class="text">
+<em>If <span class="inline">has whisky</span> or <span class="inline">has beer</span>:</em><div class="branch"><div>
+    "But you got beer already. Drink that one first, why don't you."
+    
+</div>
+<ul>
+<li>The bartender has a point there<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    The innkeeper hands you a beer.<break/>
+    "2 coins for the beer, sir."
+    
+</div>
+<div class="states">set state <span class="inline">has beer</span> to true<br />
+set number <span class="inline">gold</span> to <span class="inline">gold</span> - 2<br />
+</div>
+<ul>
+<li>You look for some coins<strong> -&gt; 15</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>15</h2>
+<div class="text">
+<em>If <span class="inline">gold</span> lower 0:</em><div class="branch"><div>
+    "What do you mean, you can't pay? Outta here, you thief!"
+    
+</div>
+<div class="states">set number <span class="inline">gold</span> to 0<br />
+</div>
+<ul>
+<li>You let yourself be thrown out<strong> -&gt; 9</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    "Thank you sir. Anything else?"
+    
+</div>
+<ul>
+<li>You think about it<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>16</h2>
+<div class="text">
+<em>If <span class="inline">has whisky</span> or <span class="inline">has beer</span>:</em><div class="branch"><div>
+    "Sir, none of my business, but you already got a whisky there. How about
+    we wait until you drink it."<break/>
+    What a service!
+    
+</div>
+<ul>
+<li>You think it over<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    The innkeeper hands you a whisky.<break/>
+    "That'll be 2 gold coins."
+    
+</div>
+<div class="states">set state <span class="inline">has whisky</span> to true<br />
+set number <span class="inline">gold</span> to <span class="inline">gold</span> - 2<br />
+</div>
+<ul>
+<li>You look for some coins<strong> -&gt; 15</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>17</h2>
+<div class="text">
+<div>
+Hmm. These taste good. Now you're getting thirsty.
+</div>
+<div class="states">set state <span class="inline">ate peanuts</span> to true<br />
+</div>
+<ul>
+<li>You think about drinking something<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>18</h2>
+<div class="text">
+<em>If not <span class="inline">has peanuts</span>:</em><div class="branch"><div>
+    You had enough peanuts. No more peanuts. Maybe later. You put some in your
+    pocket.
+    
+</div>
+<div class="states">set state <span class="inline">has peanuts</span> to true<br />
+</div>
+<ul>
+<li>You think about what to do next<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    You have enough peanuts, and your pocket is full already.
+    
+</div>
+<ul>
+<li>You think about what to do next<strong> -&gt; 19</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>19</h2>
+<div class="text">
+<div>
+There's some peanuts here. The Innkeeper is ready to take an order.
+</div>
+<ul>
+<li><em>If not <span class="inline">ate peanuts</span></em>: Eat some peanuts<strong> -&gt; 17</strong></li>
+<li><em>If <span class="inline">ate peanuts</span></em>: Eat some more peanuts<strong> -&gt; 18</strong></li>
+<li>Order whisky<strong> -&gt; 16</strong></li>
+<li>Order beer<strong> -&gt; 14</strong></li>
+<li><em>If <span class="inline">has beer</span></em>: Drink the beer<strong> -&gt; 28</strong></li>
+<li><em>If <span class="inline">has whisky</span></em>: Drink the whisky<strong> -&gt; 29</strong></li>
+<li>Get back<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>20</h2>
+<div class="text">
+<div>
+About three dozen bony people are playing games in this medieval, dim-lit bar.
+They feed on pub-crawlers trying to find luck in a stormy night.
+A poor stray-cat is gnawing your old shoes.
+</div>
+<ul>
+<li>Play dice<strong> -&gt; 13</strong></li>
+<li>Arm wrestle<strong> -&gt; 26</strong></li>
+<li><em>If not <span class="inline">tried to hush cat</span></em>: Hush the cat<strong> -&gt; 8</strong></li>
+<li>Go to the counter<strong> -&gt; 19</strong></li>
+<li><em>If <span class="inline">has beer</span></em>: Drink your beer<strong> -&gt; 28</strong></li>
+<li><em>If <span class="inline">has whisky</span></em>: Drink your whisky<strong> -&gt; 28</strong></li>
+<li>Leave the bar<strong> -&gt; 9</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>21</h2>
+<div class="text">
+<div>
+You grab a peanut and throw it high above him.<break/>
+The monkeys trained instincts make his mouth go up with a
+wet snap, and his hand goes down the same instant with a hairy
+KAH-BAMP!<break type="strong"/>
+The crowd is cheering by now. The big chubby guy congratulates you
+and hands you a little golden trophy.
+</div>
+<div class="states">set state <span class="inline">beat champ armwrestler</span> to true<br />
+set state <span class="inline">has golden trophy</span> to true<br />
+</div>
+<ul>
+<li>You lift it high up in the air and enjoy the applause while it lasts<strong> -&gt; 26</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>22</h2>
+<div class="text">
+<div>
+"Do you know the one with the monkey in a bar..."<break/>
+The big chubby guy warns you: "No talking allowed!"
+</div>
+<ul>
+<li>You reassemble lost energies<strong> -&gt; 5</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>23</h2>
+<div class="text">
+<em>If <span class="inline">alcohol</span> lower 2:</em><div class="branch"><div class="image"><img src="../../media/hand.gif" alt="" /></div>
+<div>
+	<em>Aargh! No chance...</em><break/>
+    In just some seconds your hand hits the table with
+    a splintering WHUMP.<break/>
+</div>
+<div class="states">set number <span class="inline">gold</span> to <span class="inline">gold</span> - 4<br />
+</div>
+<ul>
+<li>You pay your 4 coins debt<strong> -&gt; 6</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+	<em>Yaaaaargghh.... yes!</em><break/>
+    Aspiration, training, and a little alcohol do wonders
+    in some sports. It took some seconds but your opponents hand
+    has found its way on the table with a hefty KAPLOMBB.<break type="strong"/>
+    The chubby guy leans down.<break/>
+    "Nice job... you wanna continue?"
+</div>
+<div class="states">set state <span class="inline">beat weak armwrestler</span> to true<br />
+</div>
+<ul>
+<li>"Sure do."<strong> -&gt; 25</strong></li>
+<li>"Enough for now. I give my hand a break."<strong> -&gt; 26</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>24</h2>
+<div class="text">
+<em>If {random 0, 100} greater 50:</em><div class="branch"><div>
+    You chose one strong monkey to quarrel.
+    Your swollen red arm is uncomfortably close to the table by now
+   
+</div>
+<ul>
+<li>Kick the chimps foot under the table<strong> -&gt; 2</strong></li>
+<li>Blow some air in his face<strong> -&gt; 3</strong></li>
+<li><em>If <span class="inline">has peanuts</span></em>: Throw a peanut with your left hand<strong> -&gt; 21</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    You chose one strong monkey to quarrel.
+    Your swollen red arm is uncomfortably close to the table by now
+    
+</div>
+<ul>
+<li>Tell a joke<strong> -&gt; 22</strong></li>
+<li><em>If <span class="inline">has peanuts</span></em>: Throw a peanut with your left hand<strong> -&gt; 21</strong></li>
+<li>Concentrate and try harder<strong> -&gt; 4</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>25</h2>
+<div class="text">
+<em>If not <span class="inline">beat weak armwrestler</span>:</em><div class="branch"><div>
+    "You think you're tough? From looking at you
+    I'd think you'd have problems wrestlin' my daughter"<break/>
+    You drop the idea of handing out a snappy reply and rather
+    focus your contestant with what you imagine must be a fierce
+    stare. The thin pale lad doesn't seem to take any notice, as
+    he's slightly on the drunk side.<break type="strong"/>
+    You lock your fists, arms on the table...<break/>
+	<em>"Now... !"</em>
+</div>
+<ul>
+<li>You give all you got<strong> -&gt; 23</strong></li>
+</ul>
+</div>
+<em>Else, if not <span class="inline">beat champ armwrestler</span>:</em><div class="branch"><div class="image"><img src="../../media/monkey.gif" alt="" /></div>
+<div>
+    "You are ready for our champ... let's see if you can
+    handle... <em>a real man!</em>"<break/>
+    The chimp looks up from his banana as if to say something.
+    He sits down, reveals blinking teeth to the laughing crowd
+    and rests his hairy elbow on the wooden round.
+    <break type="strong"/>
+    You lock your fists, arms on the table...<break/>
+	<em>"Ready, set, an' wrestle... !"</em>
+</div>
+<ul>
+<li>You give all you got, and then some<strong> -&gt; 24</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    "Hmm, you beat our champ. No one is willing to take it up with you
+    anymore! Tough luck, kiddo."
+    
+</div>
+<ul>
+<li>You retreat, midly amused<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>26</h2>
+<div class="text">
+<div>
+This is a dark and shabby corner even for a dark and shabby hut.
+People around this table grimly cheer as two contestants fight it out
+with each other. A chained chimp eats a banana.<break/>
+A big chubby guy bullies you onto a small wooden chair.<break/>
+"So... you wanna try to beat one of us? Costs you 4 coins if
+you loose. You get a golden trophy if you beat our champ."
+</div>
+<ul>
+<li>"I think I can beat every one of you."<strong> -&gt; 25</strong></li>
+<li>"No, I was just lurking."<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="station">
+<h2>27</h2>
+<div class="text">
+<em>If <span class="inline">gold</span> lower 0:</em><div class="branch"><div>
+    You have no gold left!<break/>
+    Upon hearing this, you're thrown
+    
+</div>
+<ul>
+<li>...out the bar and into the rain<strong> -&gt; 9</strong></li>
+</ul>
+</div>
+<em>Else, if <span class="inline">gold</span> = 0:</em><div class="branch"><div>
+    That was your last coin. You better not lose again!
+    
+</div>
+<ul>
+<li>You try again<strong> -&gt; 12</strong></li>
+<li>Get back<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    You jingle your coins and toss one on the table.
+    You still have <span class="inline">gold</span> left.
+    
+</div>
+<ul>
+<li>You give it another chance<strong> -&gt; 12</strong></li>
+<li>You have enough of this game for now<strong> -&gt; 20</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>28</h2>
+<div class="text">
+<em>If <span class="inline">beers</span> lower 2:</em><div class="branch"><div>
+    You drink the fine beer.
+    
+</div>
+<div class="states">set number <span class="inline">alcohol</span> to <span class="inline">alcohol</span> + 1<br />
+set state <span class="inline">has beer</span> to false<br />
+</div>
+<ul>
+<li>Back<strong> -&gt;  28</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    You drink the fine beer and feel a little dizzy.
+    
+</div>
+<div class="states">set number <span class="inline">alcohol</span> to <span class="inline">alcohol</span> + 1<br />
+set state <span class="inline">has beer</span> to false<br />
+set state <span class="inline">is drunk</span> to true<br />
+</div>
+<ul>
+<li>Back<strong> -&gt;  28</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="station">
+<h2>29</h2>
+<div class="text">
+<em>If <span class="inline">alcohol</span> lower 2:</em><div class="branch"><div>
+    You drink the fine whisky.
+    
+</div>
+<div class="states">set number <span class="inline">alcohol</span> to <span class="inline">alcohol</span> + 1<br />
+set state <span class="inline">has whisky</span> to false<br />
+</div>
+<ul>
+<li>Back<strong> -&gt;  29</strong></li>
+</ul>
+</div>
+<em>Else</em>:<div class="branch"><div>
+    You drink the old whisky and feel a little dizzy.
+    
+</div>
+<div class="states">set number <span class="inline">alcohol</span> to <span class="inline">alcohol</span> + 1<br />
+set state <span class="inline">has whisky</span> to false<br />
+set state <span class="inline">is drunk</span> to true<br />
+</div>
+<ul>
+<li>Back<strong> -&gt;  29</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+</body>
+</html>

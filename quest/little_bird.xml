@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="false">
+
+<about>
+    <title>Little Bird</title>
+    <author>Philipp Lenssen</author>
+<date>26.04.01</date><cover source="media/bird.gif"/><intro>This is just a sample quest using the include command. By the station interconnections you can see the bird is seperated. The bird acts differently depending on what happens (the player can find an apple to feed it to the bird). Station interconnections can be displayed by pressing Ctrl+F1 in the editor.</intro>
+    <homepage>http://www.outer-court.com</homepage>
+    <email>lenssen@hitnet.rwth-aachen.de</email></about>
+
+
+<style><background color="rgb(0,0,0)" repeat="no-repeat"/><font color="rgb(255,255,255)" family="&quot;times new roman&quot;, serif" links="normal"/><content width="450px"/>
+<class name="loudVoice" inherits="" style="font-size: 120%"/>
+</style>
+
+
+<station id="start">
+<text>You're standing in front of a door. The door seems to be open.</text>
+<choice station="room entrance">Enter the door.</choice>
+<choice station="door wait some time">Wait some time.</choice>
+</station>
+
+
+<station id="room put back book">
+<text>You put back the book. 
+</text>
+<choice station="room bookcase">Continue</choice>
+</station>
+
+
+<station id="room entrance">
+<text>You're inside a large room.<break/>You can see a bookcase, a wooden drawer, and a carpet with strange patterns. This room smells of dust.
+</text>
+<choice station="room bookcase">Examine the bookcase.</choice>
+<choice station="room drawer">Search the drawer.</choice>
+<choice station="room carpet">Examine the carpet.</choice>
+<choice station="start">Leave the room.</choice>
+</station>
+
+
+<station id="room drawer">
+<text>The drawer is closed. A key might help here. 
+</text>
+<choice station="room entrance">Continue.</choice>
+</station>
+
+
+<station id="room carpet sit">
+<text>You sit down a bit. You suddenly feel a little dizzy. 
+</text>
+<choice station="back">You get up again.</choice>
+</station>
+
+
+<station id="room carpet">
+<text check="[visits(room carpet)] = 0">You try to make sense of the pattern by walking around the carpet and examining it from all sides. It seems slightly familiar. You touch the thick fabric, and pull it to the side.
+</text>
+<text check="[visits(room carpet)] greater = 0">You are standing close to a carpet.
+</text>
+<text>
+A door shows up below the carpet. It seems to be open.
+</text>
+<choice station="passage entrance">Enter the passage downways.</choice>
+<choice station="room carpet sit">Sit down on the carpet.</choice>
+<choice station="room entrance">Go to the entrance of the room.</choice>
+</station>
+
+
+<station id="room bookcase other books">
+<text>You go through some of the other books, but don't notice anything special. 
+</text>
+<choice station="back">Continue</choice>
+</station>
+
+
+<station id="room bookcase keep book">
+<text>You put the book in your pocket.
+</text>
+<state name="has glowing black book"/>
+<choice station="room bookcase">Continue.</choice>
+</station>
+
+
+<station id="room bookcase black book">
+<text>As you open the pages to the black book, a strange glow lights the room. You can hear a voice coming from all sides.<break/>
+</text>
+<text class="loudVoice">"Put down the book, stranger!"
+</text>
+<choice station="room put back book">You put back the black book.</choice>
+<choice station="room bookcase keep book">You keep the book.</choice>
+</station>
+
+
+<station id="room bookcase">
+<text>You're standing in front of a bookcase. Some of these books seem to fall apart.
+</text>
+<text check="not [has glowing black book]">A large black leathered book catches your attention. You can't decipher its title, as it seems to be written in magic language. 
+</text>
+<choice station="room bookcase black book" check="not [has glowing black book]">Pick up the black book.</choice>
+<choice station="room bookcase other books">Examine some books.</choice>
+<choice station="room entrance">Go back to the entrance of the room.</choice>
+</station>
+
+
+<station id="passage entrance">
+<text check="[has glowing black book]">You're at the entrance of a passage. The glowing black book shows you the way down the passage.
+</text>
+<text check="not [has glowing black book]">Everything is dark around here. You can't see your own hand. Maybe you need a light. 
+</text>
+<choice station="passage deeper" check="[has glowing black book]">You go deeper down the passage.</choice>
+<choice station="room carpet">You go up again.</choice>
+</station>
+
+
+<station id="passage deeper">
+<text>You're deep inside the underground passage. Spiders crawl beneath your shoes, and there's a cold wind biting your face. After a bit of walking, the passage and at a closed, metal door. You can hear a high pitched voice screaming from inside. The door is closes.
+</text>
+<choice station="back">You go back and up the passage again.</choice>
+</station>
+
+
+<station id="door wait some time">
+
+<if check="{random 0, 100} greater 35">
+<text>You wait around a bit, and get hungry. You pick up a shiny red apple from a tree close to you.
+</text>
+<state name="has red apple"/>
+<choice station="door eat apple">Eat the apple.</choice>
+<choice station="start">Don't eat the apple.</choice>
+</if>
+<else>
+<text>You wait around a bit, but nothing special happens. 
+</text>
+<choice station="start">Continue</choice>
+</else>
+</station>
+
+
+<station id="door eat apple">
+<text>The apple tastes good. Your appetite is satisfied for now.</text>
+<state name="not has red apple"/>
+<choice station="start">Continue.</choice>
+</station>
+
+
+<station id="bird sings">
+<text>
+The bird sings a song:
+<poem>
+There once was a love bird
+High up in the sky
+All day flying around
+Doesn't matter much why
+Well it mighta been lonely
+Or a little bit sad
+Or it might well just be
+Love birds are plain mad
+</poem>
+</text>
+<choice station="[station of bird]">Continue.</choice>
+</station>
+
+
+<station id="bird in room"><include>
+<in station="room*"/>
+</include>
+<number name="birdReaction" value="{random 1, 8}"/>
+<text><break type="strong"/></text>
+<text check="[birdReaction] = 1">A little bird is flying around you, chirping.</text>
+<text check="[birdReaction] = 2">A little bird is flying around you wildly. It seems to be a bit hungry.</text>
+<text check="[birdReaction] = 3">A litte bird is sitting down on your shoulder.</text>
+<text check="[birdReaction] greater = 4 and [fed red apple to bird]">The little bird seems to like you and sings a song in bird voice. It's a song about love.
+</text>
+<string name="stationOfBird" value="[qmlStation]"/>
+<choice station="bird feed apple" check="[has red apple] and not [birdReaction] = 4">Feed the apple to the bird.</choice>
+<choice station="bird sings" check="[birdReaction] greater = 4 and [fed red apple to bird]">Listen a bit to the little bird.
+</choice>
+</station>
+
+
+<station id="bird feed apple">
+<text>The bird likes the red apple and eats it.</text>
+<state name="not has red apple"/>
+<state name="fed red apple to bird"/>
+<choice station="[stationOfBird]">Continue.</choice>
+</station>
+
+
+
+</quest>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<div>
+    <h1 class="stationDisplay">Station [stationId]</h1>
+    
+    <div class="statesDisplay">
+        <p class="listDescript">
+            <strong>States:</strong> Listed are the true states:
+        </p>
+        [setList]
+    </div>
+   
+    <div class="numbersDisplay">
+        <p class="listDescript"><strong>Numbers:</strong> Listed are the numbers which
+                are not 0, or have other than default limits:
+        </p>
+        [numberList]
+    </div>
+    
+    <div class="stringsDisplay">
+        <p class="listDescript"><strong>Strings:</strong> Listed are the strings which are not empty:
+        </p>
+        [stringList]
+    </div>
+</div>

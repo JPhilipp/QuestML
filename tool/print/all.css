@@ -1,0 +1,91 @@
+body
+{
+    font-family: verdana, arial, sans-serif;
+    font-size: 9pt;
+    margin-left: 40pt;
+    margin-right: 40pt;
+}
+
+h1
+{
+    font-size: 130%;
+    text-align: center;
+}
+
+h2
+{
+    font-size: 120%;
+    margin-bottom: 8pt;
+    border-bottom: 1pt solid black;
+}
+
+ul
+{
+    margin-top: 6pt;
+    margin-left: 18pt;
+}
+
+ul li
+{
+    list-style-type: square;
+}
+
+.inline
+{
+    text-decoration: underline;
+}
+
+.station
+{
+    page-break-inside: avoid;
+    margin-bottom: 20pt;
+}
+
+.subTitle
+{
+    font-weight: normal;
+    font-style: italic;
+    font-size: 90%;
+}
+
+.branch
+{
+    border-left: 1pt dotted black;
+    padding-left: 8pt;
+    margin-top: 4px;
+}
+
+div.display
+{
+    border: 1px solid black;
+    font-weight: bold;
+    width: 50%;
+    padding: 4pt;
+    margin-top: 4pt;
+    margin-bottom: 4pt;
+}
+
+pre.poem
+{
+    font-family: verdana, arial, sans-serif;
+    font-style: italic;
+}
+
+.introduction
+{
+    font-size: 110%;
+}
+
+.randomize
+{
+    font-style: italic;
+    margin-bottom: 4pt;
+}
+
+.states
+{
+    border-left: 1px solid black;
+    padding-left: 4pt;
+    margin-top: 4pt;
+    font-style: italic;
+}

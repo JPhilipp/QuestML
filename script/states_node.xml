@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<div>
+    <h1 class="stationDisplay">Station [stationId]</h1>
+    <div class="statesDisplay">
+        <p class="listDescript"><strong>States:</strong></p>
+        [stateList]
+    </div>
+    <div class="numbersDisplay">
+        <p class="listDescript"><strong>Numbers:</strong></p>
+        [numberList]
+    </div>
+    <div class="stringsDisplay">
+        <p class="listDescript"><strong>Strings:</strong></p>
+        [stringList]
+    </div>
+</div>

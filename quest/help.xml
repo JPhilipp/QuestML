@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="false">
+
+<about>
+    <title>QML Help</title>
+    <author>Philipp Lenssen</author>
+</about>
+
+
+<style><font family="arial, sans-serif"/><content left="default" top="default" width="600px"/></style>
+
+
+<station id="about qml create">
+<text>You can write QML quests in a simple text file or use the free <link to="http://questml.com/editor/">QML-Edit</link> software. There is not necessarily programming involved, and quests can be written in a very intuitive and easy fashion.</text>
+<choice station="writing qml concept">What is the conept of writing QML?</choice>
+</station>
+
+
+<station id="about qml distribute">
+<text>QML quests run in the Internet Explorer 5+ browser. And if you have an Apache or Windows server, you can have them be played on any browser, even make them accessible by text-to-speech clients, or mobile phones!</text>
+<choice station="setup qml server">How do I install QML-Interpreters to run on the server?</choice>
+</station>
+
+
+<station id="cyoas">
+<text>CYOA is short for <emphasis>Choose-Your-Own-Adventure</emphasis>. In it, the player/ reader can go through bits of text which end with one or more links/ references to another bit of text. This way, one can interactively read through the quest. Many gamebooks have been published, in settings such as fantasy, crime, history, and science-fiction.</text>
+<choice station="general qml">What is QML then?</choice>
+<choice station="interactive fiction">I want to know about Interactive Fiction in general</choice>
+</station>
+
+
+<station id="development">
+<text>If you're a <strong>programmer</strong>, and your language or server of choice is not covered by the existing port, you might want to try one on your own. Java, Netscape 6 client-side JavaScript, Perl, and many other options could still be done.<break type="strong"/>
+If you're a <strong>webmaster</strong>, you can help out by putting up links to the questml.com website.<break type="strong"/>
+If you're an <strong>author</strong> of interactive fiction, you could push QML by creating a great quest.
+</text>
+</station>
+
+
+<station id="general qml">
+<text>QML, the <emphasis>Quest Markup Language</emphasis>, is a free XML-based Choose-Your-Own-Adventure game system. Adventures can have images, sound, states to check, random events and much more. </text>
+<choice station="cyoas">What are CYOAs?</choice>
+<choice station="about qml create">How can I create quests?</choice>
+<choice station="about qml distribute">How can I distribute files?</choice>
+</station>
+
+
+<station id="interactive fiction">
+<text>There are different tools for creating and playing interactive fiction. Many are using text-parsed input, like you can find it in the games <emphasis>"Zork"</emphasis> or <emphasis>"The Hitchhiker's Guide to the Galaxy"</emphasis>. These are typically written using Inform or Tads.
+<break type="strong"/>
+See the site's <link to="http://questml.com/links.htm">link section</link> for more information on text-parsed if programs. You might also be interested in a compilation of <link to="http://questml.com/quests/other.htm">Choose-Your-Own-Adventures written in other languages</link>.
+</text>
+</station>
+
+
+<station id="logo"><include process="before">
+<in station="*"/>
+</include>
+<image source="media/logo.gif"/>
+</station>
+
+
+<station id="setup qml">
+<text>What do you want to install?</text>
+<choice station="setup qml edit">QML-Edit to create adventures</choice>
+<choice station="setup qml microsoft">Microsoft XML or Internet Explorer 6</choice>
+<choice station="setup qml server">QML-Interpreters to run on the server</choice>
+</station>
+
+
+<station id="setup qml edit">
+<text>You can find the latest Windows setup for QML-Edit in the <link to="http://questml.com/download.htm">QML downloads page</link>. Note that to make sure you have the latest scripts and files, replace the installation folder with the QML-package, which might be more recent. (Just don't replace the "quest" folder in case you already created quests.) If you have trouble please post in the <link to="http://questml.com/forum/">QML discussion forum</link> or install MSXML4, and possibly Internet Explorer 6. As last resort, you can always write QML in a simple text-editor of your choice.</text>
+<choice station="setup qml microsoft">How do I install Microsoft XML or Internet Explorer 6?</choice>
+<choice station="writing qml">Now that I installed QML-Edit successfully, I have a problem writing something in it</choice>
+</station>
+
+
+<station id="setup qml microsoft">
+<text>You can get MSXML4 and the Internet Explorer 6 from the <link to="http://www.microsoft.com/downloads/search.asp?">Microsoft.com download</link> section. Internet Explorer 5/ 5.5 should do well for QML, but it's hard to find the setup to those since Microsoft only supports the new versions. However you can run QML on other browsers and systems by using the server-side version and writing them using a simple text-editor.</text>
+<choice station="setup qml server">How do I setup QML-Interpreters to run on the server?</choice>
+</station>
+
+
+<station id="setup qml server">
+<text>QML comes in a client- and two server-versions (Windows ASP/ VBScript, and PHP for Linux/ Apache).<break/>
+The <emphasis>client-version</emphasis> won't run in every browser, since the data and script languages that handle it need the Internet Explorer 5+.<break/>
+The <emphasis>server-version</emphasis> however runs in every browser, since all data is prepared by another computer before it's send to the browser, which now only has to understand the language every browser understands. 
+</text>
+<choice station="setup qml server client">What are the pro's and con's of running QML-server-side, as opposed to QML-client side?</choice>
+<choice station="setup qml server data">How do I prepare the data to run on the server?</choice>
+<choice station="setup qml server windows">How do I setup the Windows server interpreter?</choice>
+<choice station="setup qml server apache">How do I setup the Apache server interpreter?</choice>
+<choice station="setup qml server choice">Which server should I use for QML?</choice>
+</station>
+
+
+<station id="setup qml server apache">
+<text>The PHP4 port of the QML-interpreter runs on Apache and Windows (if PHP is installed). It doesn't include all features, but most. There's also a Python port available.<break/>
+<break/>
+To select a certain file, for example "test", the adress has to be given as:<break/>
+http://webroot/myfolder/index.php?quest=test 
+</text>
+</station>
+
+
+<station id="setup qml server choice">
+<text>The server is completely up to you, and in general you should just run QML on whatever server you already have. Note that the Apache/ PHP version should cover most of the server market (about 65% Apache, and 25% Microsoft). PHP is installed on about 45% of all Apache Servers.
+</text>
+</station>
+
+
+<station id="setup qml server client">
+<text>
+<strong>Restrictions of the server-side</strong>
+- There is no music <break/>
+- There might be a slightly different design in some browsers<break/>
+- In very old browsers, there is no design<break/>
+- Some browsers won't display pictures<break/>
+- The user can cheat a little more by using the "Back"-button of the browser<break/>
+<break/>
+<strong>Advantages of the server-side</strong>
+Can be used with practically any browser, on any system like:<break/>
+- Lynx text-based browser <break/>
+- Netscape Navigator 1 and 6 <break/>
+- Internet Explorer 4 <break/>
+- Opera browser <break/>
+- Cellular phone with WAP access <break/>
+Your quest source is hidden <break/>
+Initial file size is of less importance<break/>
+</text>
+</station>
+
+
+<station id="setup qml server data">
+<text>You don't need to adjust any of your quest files to run them on the server. The same data will be handled by the server-side code. You are completely on the safe side if you remove any positioning on your QML-style settings.</text>
+<choice station="setup qml server windows">How do I setup the Windows server interpreter?</choice>
+<choice station="setup qml server apache">How do I setup the Apache server interpreter?</choice>
+</station>
+
+
+<station id="setup qml server windows">
+<text>The game runs on the IIS (Internet Information Server), using the file "qml.asp" from the QML Package as entry point. MSXML needs to be installed.<break/>
+To select a certain file, for example "test", the adress has to be given as:<break/>
+QML1: http://webroot/myfolder/qml.asp?quest=test<break/>
+QML2: http://webroot/myfolder/default.asp?quest=quest/test<break/>
+<break/>
+No scripts need write-access. 
+</text>
+</station>
+
+
+<station id="something else">
+<text>If you don't find your question answered here, please make sure to check out the rest of the QML website, like the <link to="http://questml.com/forum/">forum</link>, or send me an <link to="mailto:info@questml.com">email</link>.</text>
+<choice station="website">Tell me more about the website</choice>
+</station>
+
+
+<station id="start">
+<text>What do you want know or do?</text>
+<choice station="cyoas">What are CYOAs?</choice>
+<choice station="general qml">What is QML?</choice>
+<choice station="writing qml">I have a problem writing something in QML</choice>
+<choice station="setup qml">I have a problem installing something regarding QML</choice>
+<choice station="website">I want to know about the QML website or author</choice>
+<choice station="interactive fiction">I want to know something about Interactive Fiction in general</choice>
+<choice station="development">I want to help out developing QML or making it known</choice>
+<choice station="something else">I want to know something else</choice>
+</station>
+
+
+<station id="website">
+<text>The website at <link to="http://questml.com">questml.com</link> consists of latest <link to="http://questml.com/download.htm">downloads</link>, <link to="http://questml.com/tutorial/">tutorials</link>, the <link to="http://questml.com/syntax/">syntax reference</link>, and an open <link to="http://questml.com/forum/">discussion forum</link>.<break/>
+The author of QML is <link to="mailto:info@questml.com">Philipp Lenssen.</link></text>
+</station>
+
+
+<station id="writing converting">
+<text>I'm afraid there's many issues involved here, but still QML2 can do practically anything QML1 could, and in a much more elegant and powerful way.<break/>
+For details please refer to <link to="http://questml.com/tutorial/qml2.htm">What's new in QML2</link>.</text>
+</station>
+
+
+<station id="writing embed">
+<text>In QML, you can include images, music, XML files on the disk, or even website on the internet.
+
+Please see the site sections on <link to="http://questml.com/tutorial/media.htm">Media</link> for images and music, and the syntax explanation of <link to="http://questml.com/syntax/Station_embed__.htm">Embed</link>.
+</text>
+</station>
+
+
+<station id="writing qml">
+<text>What is your task about?</text>
+<choice station="writing qml concept">Understanding the concepts of writing QML</choice>
+<choice station="writing converting">Converting a project from QML1 to QML2</choice>
+<choice station="writing embed">Embedding image, music or something else in the station</choice>
+<choice station="writing states">Setting and checking certain states</choice>
+<choice station="writing xml">I'm in trouble understanding XML itself</choice>
+<choice station="writing samples">I want to find some code samples</choice>
+</station>
+
+
+<station id="writing qml concept">
+<text>Each QML quest is held in XML. It's made up of stations, which have text and choices, and additionally may have state setting and checking, if-else branches, and many other features.</text>
+<choice station="writing states">How do I set and check states?</choice>
+<choice station="writing xml">What is XML?</choice>
+<choice station="writing samples">Can I see some code?</choice>
+</station>
+
+
+<station id="writing samples">
+<text>What you should definitely read is <link to="http://questml.com/tutorial/examples.htm">practical examples</link> on the site. You can also discuss and see code approaches in the QML <link to="http://questml.com/forum/">forum</link> on the website.</text>
+</station>
+
+
+<station id="writing states">
+<text>States in QML are a way to store facts about the quest. For example, you can retrieve user input and store the player name. Or you can have a number memorizing how much gold the player collected. Or you can simply have flags that tell you if the player has made this choice before, and if so have it not show up.<break type="strong"/>
+For more information, please see the <link to="http://questml.com/tutorial/states.htm">tutorial on states</link>.</text>
+</station>
+
+
+<station id="writing xml">
+<text>XML, the <emphasis>eXtensible Markup Language</emphasis>, is a structured document/ data format syntax. It can be used to define languages for different purposes, such as one is QML for Choose-Your-Own-Adventures. Others could be having a language to define cooking recipes. <emphasis>XHTML</emphasis> is the language web pages are based on, and it too is XML.</text>
+<choice station="writing xml xsl">What are XSL and XPath?</choice>
+<choice station="writing xml syntax">What exactly are the rules to XML syntax?</choice>
+<choice station="writing xml dom sax">What are XML DOM and SAX?</choice>
+</station>
+
+
+<station id="writing xml dom sax">
+<text><strong>XML DOM</strong>, the <emphasis>Document Object Model</emphasis>, is a general-purpose programming interface to access the document as a whole. It can be rather slow and memory consuming for very large files, but it's easy to handle. You can query relationships such as; go through all the child-nodes of this element.<break type="strong"/><strong>SAX</strong> on the other hand, the <emphasis>Simple API (Application Programming Interface) for XML</emphasis> is an even oriented mechanism to retrieve XML information. The document structure as a whole is lost here, but the process doesn't need to read in the whole data at once and therefore can be used to stream access even very large XML files.</text>
+</station>
+
+
+<station id="writing xml syntax">
+<text>XML itself is made of those different components:<break/>- the XML declaration at the top<break/>- the XML doctype, if declared<break/>- the root element having having many nested sub-elements<break/>- the text data inside those elements<break/>- the attributes to those elements.<break/>
+
+For more information, see <link to="http://questml.com/tutorial/xml.htm">Introducing XML</link>.</text>
+</station>
+
+
+<station id="writing xml xsl">
+<text><strong>XSL</strong>, the <emphasis>eXtensible Style Language</emphasis>, is a group of technologies. The two most important ones are:<break type="strong"/><strong>XSLT</strong>, the <emphasis>eXtensible Style Language Transformation</emphasis>, which itself is held in XML and used to programmaticaly transform XML files into other XML files, or output of any other kind (plain text, or a bit more rarely, binary).<break type="strong"/><strong>XPath</strong> is a querying language to retrieve certain elements, attributes, or texts holding specific characteristica. For example you can formulate queries like: return all the child elements of the element of name "myElement" which have an attribute of the name "id".</text>
+</station>
+
+
+
+</quest>
+

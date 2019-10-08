@@ -1,0 +1,183 @@
+<!ENTITY % setStateContent "(string | state | number | randomize)*">
+
+<!ENTITY % textContent "#PCDATA | image | break| emphasis | strong | display | poem | span | link">
+
+<!ENTITY % stationContent "(image? | music?)*, 
+                            (text | image | component | table)*,
+                            ( (%setStateContent;) ),
+                            (choice* | choose)
+                            ">
+
+<!ENTITY % chooseContent "(%setStateContent;), choose">
+
+<!ELEMENT quest (about, style?, station+)>
+<!ATTLIST quest encoded (false | true) 'false'
+                debug (false | true) 'false'
+                language (english | german) 'english'
+                >
+
+<!ELEMENT about (
+                  ( (title, author) | (author, title) ),
+                  (
+                    (cover?, intro?, date?) |
+                    (cover?, date?, intro?) |
+                    (date?, cover?, intro?) |
+                    (date?, intro?, cover?) |
+                    (intro?, date?, cover?) |
+                    (intro?, cover?, date?)
+                  ),
+                  ( ( email?, homepage? ) | (homepage?, email?) )
+                ) >
+
+    <!ATTLIST about show (false | true) 'true'>
+
+    <!ELEMENT title (#PCDATA)>
+    <!ATTLIST title show (false | true) 'true'>
+
+    <!ELEMENT author (#PCDATA)>
+    <!ATTLIST author show (false | true) 'true'>
+
+    <!ELEMENT cover EMPTY>
+    <!ATTLIST cover source CDATA #REQUIRED>
+    <!ELEMENT intro (#PCDATA)>
+    <!ELEMENT date (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT homepage (#PCDATA)>
+
+<!ELEMENT station (
+                    (comment?, include*, input?, if*, else) |
+                    (comment?, include*, randomize+, if*, else) |
+                    (comment?, include*, input?, randomize+, %stationContent;) |
+                    (include*, comment?, input?, if*, else) |
+                    (include*, comment?, randomize+, if*, else) |
+                    (include*, comment?, input?, %stationContent;)
+                  )
+                  >
+    <!ATTLIST station id CDATA #REQUIRED
+              saving (default | allowed | forbidden | on | off) 'default'
+              states (persist | reset) 'persist'>
+
+    <!ELEMENT include (in+)>
+    <!ATTLIST include check CDATA #IMPLIED
+                      process (before | after | exclusive) 'after'>
+    <!ELEMENT in EMPTY>
+    <!ATTLIST in check CDATA #IMPLIED>
+    <!ATTLIST in station CDATA #REQUIRED>
+
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT input EMPTY>
+    <!ATTLIST input text CDATA #IMPLIED
+                    name CDATA #IMPLIED
+                    max CDATA #IMPLIED
+            >
+    <!ELEMENT randomize EMPTY>
+    <!ATTLIST randomize number CDATA #REQUIRED
+                        value CDATA #REQUIRED>
+    <!ELEMENT image EMPTY>
+    <!ATTLIST image source CDATA #REQUIRED
+                    check CDATA #IMPLIED
+                    text CDATA #IMPLIED
+                    class CDATA #IMPLIED
+                    default (true | false) 'false'>
+    <!ELEMENT music EMPTY>
+    <!ATTLIST music source CDATA #REQUIRED
+                    check CDATA #IMPLIED
+                    loop (true | false) 'false'
+                    default (true | false) 'false'>
+
+    <!ELEMENT component EMPTY>
+    <!ATTLIST component name CDATA #REQUIRED
+              values CDATA #IMPLIED
+              returns (void | xhtml) 'void'>
+
+    <!ELEMENT table (caption?, tr*)>
+    <!ATTLIST table class CDATA #IMPLIED>
+    <!ELEMENT caption (#PCDATA)>
+    <!ELEMENT tr (th | td)+>
+    <!ATTLIST tr class CDATA #IMPLIED>
+    <!ELEMENT th (#PCDATA)>
+    <!ATTLIST th rowspan CDATA #IMPLIED
+                 colspan CDATA #IMPLIED
+                 class CDATA #IMPLIED>
+    <!ELEMENT td (#PCDATA)>
+    <!ATTLIST td rowspan CDATA #IMPLIED
+                 colspan CDATA #IMPLIED
+                 class CDATA #IMPLIED>
+
+    <!ELEMENT text (%textContent; | choice)*>
+    <!ATTLIST text check CDATA #IMPLIED
+                   class CDATA #IMPLIED>
+        <!ELEMENT break EMPTY>
+        <!ATTLIST break type (normal | strong) 'normal'>
+        <!ELEMENT emphasis (#PCDATA)>
+        <!ELEMENT strong (#PCDATA)>
+        <!ELEMENT display (#PCDATA)>
+        <!ELEMENT poem (#PCDATA)>
+        <!ELEMENT link (#PCDATA)>
+        <!ATTLIST link to CDATA #REQUIRED
+                       target (blank | self | top) 'blank'>
+
+    <!ELEMENT state EMPTY>
+    <!ATTLIST state name CDATA #REQUIRED
+                  value (false | true) 'true'
+                  process (before | after) 'before'>
+    <!ELEMENT number EMPTY>
+    <!ATTLIST number name CDATA #REQUIRED
+                     value CDATA #REQUIRED
+                     process (before | after) 'before'
+                     min CDATA #IMPLIED
+                     max CDATA #IMPLIED>
+    <!ELEMENT string EMPTY>
+    <!ATTLIST string name CDATA #REQUIRED
+                     value CDATA #REQUIRED
+                     process (before | after) 'before'
+                     >
+    <!ELEMENT choice (%textContent;)*>
+    <!ATTLIST choice station CDATA #REQUIRED
+                     check CDATA #IMPLIED
+                     area CDATA #IMPLIED
+                     class CDATA #IMPLIED>
+
+<!ELEMENT if ( (%chooseContent;) | (%stationContent;) )>
+<!ATTLIST if check CDATA #IMPLIED>
+<!ELEMENT else ( (%chooseContent;) | (%stationContent;) )>
+    <!ELEMENT choose EMPTY>
+    <!ATTLIST choose station CDATA #REQUIRED>
+
+<!ELEMENT style (
+                  (background?, font?, content?, information?, class*) |
+                  (background?, content?, font?, information?, class*) |
+                  (font?, background?, content?, information?, class*) |
+                  (font?, content?, background?, information?, class*) |
+                  (content?, font?, background?, information?, class*) |
+                  (content?, background?, font?, information?, class*)
+                )
+    >
+    <!ELEMENT background EMPTY>
+        <!ATTLIST background color CDATA 'default'
+                             image CDATA 'default'
+                             repeat (no-repeat | repeat-x | repeat-y| repeat) 'no-repeat'>
+    <!ELEMENT font EMPTY>
+        <!ATTLIST font color CDATA 'default'
+                       family CDATA 'default'
+                       weight CDATA 'default'
+                       size CDATA 'default'
+                       links (normal | underlined) 'underlined'>
+    <!ELEMENT content EMPTY>
+        <!ATTLIST content width CDATA '500px'
+                         left CDATA 'default'
+                         top CDATA 'default'>
+    <!ELEMENT information EMPTY>
+        <!ATTLIST information width CDATA '500px'
+                              left CDATA 'default'
+                              top CDATA 'default'
+                              height CDATA 'default'
+                              backgroundColor CDATA 'default'
+                              color CDATA 'default'
+                              fontSize CDATA 'default'
+                              padding CDATA '1px'
+                              textAlign CDATA 'left'>
+    <!ELEMENT class EMPTY>
+        <!ATTLIST class name CDATA #REQUIRED
+                        inherits CDATA #IMPLIED
+                        style CDATA #REQUIRED>

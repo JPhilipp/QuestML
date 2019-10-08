@@ -1,0 +1,515 @@
+body
+{
+    background-color: #fff;
+    color: #000;
+    font-family: verdana, arial, helvetica, sans-serif;
+    background-image: url(/style/back_line.gif);
+    background-repeat: repeat-x;
+    margin: 0;
+    font-size: 90%;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active
+{
+    color: #44a;
+    text-decoration: underline;
+}
+
+a img
+{
+    border: 0;
+}
+
+h1
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+}
+
+h2
+{
+    font-size: 110%;
+    text-align: right;
+}
+
+.home h2
+{
+    display: none;
+}
+
+h3
+{
+    color: rgb(249,151,84);
+    font-size: 115%;
+    border-top: 1px solid black;
+    padding-top: 30px;
+}
+
+h4
+{
+    font-size: 100%;
+    font-style: italic;
+}
+
+hr
+{
+    height: 1px;
+}
+
+.subNavigation
+{
+    background-image: url(/style/sub_navigation.gif);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 85px;
+    width: 142px;
+    height: 403px;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    padding-right: 15px;
+    font-weight: bold;
+    color: rgb(125,125,125);
+}
+
+.subNavigation a:link,
+.subNavigation a:visited,
+.subNavigation a:hover,
+.subNavigation a:active
+{
+    color: rgb(125,125,125);
+    text-decoration: none;
+}
+
+.subNavigation a:hover
+{
+    color: #000;
+}
+
+.subNavigation a.current:link,
+.subNavigation a.current:visited,
+.subNavigation a.current:hover,
+.subNavigation a.current:active
+{
+    color: #000;
+    font-style: italic;
+}
+
+.subNavigation a:active,
+.subNavigation a.current:active
+{
+    color: #000;
+    text-decoration: underline;
+}
+
+.subNavigation div
+{
+    border-bottom: 1px solid rgb(100,100,100);
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.subNavigation div.last
+{
+    border-bottom: 0;
+}
+
+.content
+{
+    margin-left: 171px;
+    padding-top: 110px;
+    width: 500px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    border-left: 1px solid rgb(217,217,217);
+}
+
+.navigation
+{
+    position: absolute;
+    left: 200px;
+    top: 64px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 95%;
+}
+
+.navigation a:link,
+.navigation a:visited,
+.navigation a:active,
+.navigation a:hover
+{
+    color: rgb(100,100,100);
+    text-decoration: none;
+}
+
+.navigation a.current:link,
+.navigation a.current:visited,
+.navigation a.current:hover,
+.navigation a.current:active,
+.navigation a:hover
+{
+    background-color: rgb(255,240,221);
+    color: #000;
+}
+
+.navigation a:active,
+.navigation .current a:active
+{
+    text-decoration: underline;
+    color: #000;
+}
+
+.picAndText,
+.picAndTextAlternative
+{
+    width: 490px;
+    margin-bottom: 20px;
+}
+
+.pic
+{
+    float: left;
+    font-style: italic;
+    width: 150px;
+}
+
+.text
+{
+    width: 310px;
+    padding: 1px;
+    padding-left: 20px;
+}
+
+.picAndTextAlternative .pic
+{
+    float: right;
+    width: 220px;
+}
+
+.picAndTextAlternative .text
+{
+    width: 240px;
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+th,
+td
+{
+    padding: 6px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid rgb(100,100,100);
+    border-bottom: 2px solid rgb(100,100,100);
+    border-right: 1px solid rgb(200,200,200);
+    border-left: 1px solid rgb(200,200,200);
+    background-repeat: repeat-x;
+}
+
+th
+{
+    background-color: rgb(255,240,221);
+}
+
+td
+{
+    background-color: rgb(245,245,245);
+}
+
+.emphasis th
+{
+    background-image: url(/style/light_back_line.gif);
+}
+
+.emphasis td
+{
+    background-image: url(/style/grey_back_line.gif);
+}
+
+ul li
+{
+    list-style-type: square;
+}
+
+.home strong
+{
+    letter-spacing: 0px;
+}
+
+.note
+{
+    background-image: url(/style/arrow.gif);
+    background-repeat: no-repeat;
+    padding-left: 22px;
+    font-style: italic;
+}
+
+.translation
+{
+    text-align: right;
+    padding-right: 20px;
+    background-image: url(/style/translation.gif);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    font-size: 90%;
+    font-style: italic;
+}
+
+.comment
+{
+    padding-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.comment .title,
+.comment .titleRe
+{
+    font-weight: bold;
+    color: rgb(249,151,84);
+    font-size: 110%;
+    margin-bottom: 10px;
+}
+
+textarea
+{
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 90%;
+    overflow: auto;
+}
+
+.comment .info,
+.commentHomepage
+{
+    font-style: italic;
+    padding: 2px;
+}
+
+.comment .info
+{
+    margin-top: 10px;
+    background-color: #eee;
+}
+
+td.submit
+{
+    text-align: right;
+    background-color: rgb(255,240,221);
+}
+
+input.submit
+{
+    background-color: rgb(235,220,201);
+    border-size: 1px;
+    background-image: url(/style/arrow.gif);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    font-style: italic;
+    padding-right: 2px;
+    padding-left: 8px;
+}
+
+.continue
+{
+    text-align: right;
+    font-style: italic;
+}
+
+code
+{
+    display: block;
+    padding: 10px;
+    background-color: rgb(245,245,245);
+    font-family: "courier new", courier, monospace;
+    border: 1px solid black;
+}
+
+.optional
+{
+    color: #070;
+}
+
+.element,
+.must,
+.emphasizePart
+{
+    color: #009;
+}
+
+.ifElse
+{
+    text-decoration: underline;
+}
+
+.attribute,
+.ifTrue
+{
+    color: #070;
+}
+
+.ifFalse
+{
+    color: #700;
+}
+
+.attributeValue,
+.codeComment
+{
+    color: #666;
+}
+
+.defaultValue
+{
+    text-decoration: underline;
+}
+
+.subNavigation div.seperator
+{
+    color: rgb(249,151,84);
+    margin-top: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+}
+
+caption
+{
+    padding: 4px;
+}
+
+td.command
+{
+    background-color: rgb(255,240,221);
+    font-family: "courier new", courier, monospace;
+}
+
+.commandDescription
+{
+    font-style: italic;
+}
+
+.commandSyntax
+{
+    font-family: "courier new", courier, monospace;
+}
+
+div.quote
+{
+    border: 1px solid black;
+    padding-left: 20px;
+}
+
+.syntax .subNavigation
+{
+    height: 400px;
+    overflow: auto;
+    background-attachment: fixed;
+}
+
+.syntax h2
+{
+    display: none;
+}
+
+.syntax .content
+{
+    top: 100px;
+}
+
+.moreInfo
+{
+    margin-top: 50px;
+    border: 1px dotted #000;
+    padding: 10px;
+}
+
+.moreInfo strong
+{
+    letter-spacing: 1px;
+}
+
+.footnote
+{
+    font-size: 90%;
+    font-style: italic;
+}
+
+.syntax table a:link,
+.syntax table a:visited
+{
+    text-decoration: none;
+}
+
+.syntax table a:hover,
+.syntax table a:active
+{
+    text-decoration: underline;
+}
+
+.syntax table a:active
+{
+    background-color: rgb(255,240,221);
+    color: #000;
+}
+
+.seperated
+{
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+}
+
+ul.toc
+{
+    margin-left: 22px;
+}
+
+ul.toc li
+{
+    list-style-image: url(/style/arrow_down.gif);
+    margin-bottom: 6px;
+}
+
+.post
+{
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.forumOverview
+{
+    background-image: url(/style/back.jpg);
+    background-repeat: no-repeat;
+    padding: 4px;
+    padding-top: 6px;
+    padding-left: 18px;
+}
+
+em.announcement
+{
+    font-size: 115%;
+    letter-spacing: 1px;
+}
+
+.announcement li
+{
+    margin-bottom: 10px;
+    font-size: 105%;
+    font-weight: bold;
+}
+
+#contest .text
+{
+    text-align: right;
+}

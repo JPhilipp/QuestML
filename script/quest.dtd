@@ -1,0 +1,145 @@
+<!ENTITY % setStateContent "(string | state | number)*">
+
+<!ENTITY % textContent "#PCDATA | image | break| emphasis | strong | display | poem | span | link">
+
+<!ENTITY % stationContent "(image | music | text | image | table| embed | (%setStateContent;))*,
+                            ( (choice*, input*)*  | choose )
+                            ">
+
+<!ENTITY % chooseContent "(%setStateContent;), choose">
+
+<!ELEMENT quest (about, style?, station+)>
+<!ATTLIST quest debug (false | true) 'false'
+                language (english | german) 'english'
+                >
+
+<!ELEMENT about (
+                  ( (title, author)* ),
+                  ( (cover?, intro?, date?, email?, homepage?)* )
+                ) >
+
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT author (#PCDATA)>
+
+    <!ELEMENT cover EMPTY>
+    <!ATTLIST cover source CDATA #REQUIRED>
+    <!ELEMENT intro (#PCDATA)>
+    <!ELEMENT date (#PCDATA)>
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT homepage (#PCDATA)>
+
+<!ELEMENT station (
+                    (comment?, include*, if*, else) |
+                    (comment?, include*, (%setStateContent;), if*, else) |
+                    (comment?, include*, (%setStateContent;), %stationContent;) |
+                    (include*, comment?, if*, else) |
+                    (include*, comment?, (%setStateContent;), if*, else) |
+                    (include*, comment?, %stationContent;)
+                  )
+                  >
+    <!ATTLIST station id CDATA #REQUIRED
+              states (persist | reset) 'persist'>
+
+    <!ELEMENT include (in+)>
+    <!ATTLIST include check CDATA #IMPLIED
+                      process (before | after | exclusive) 'after'>
+    <!ELEMENT in EMPTY>
+    <!ATTLIST in check CDATA #IMPLIED>
+    <!ATTLIST in station CDATA #REQUIRED>
+
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT image EMPTY>
+    <!ATTLIST image source CDATA #REQUIRED
+                    check CDATA #IMPLIED
+                    text CDATA #IMPLIED
+                    class CDATA #IMPLIED
+                    default (true | false) 'false'>
+    <!ELEMENT music EMPTY>
+    <!ATTLIST music source CDATA #REQUIRED
+                    check CDATA #IMPLIED
+                    loop (true | false) 'false'
+                    default (true | false) 'false'>
+
+    <!ELEMENT table (caption?, tr*)>
+    <!ATTLIST table class CDATA #IMPLIED>
+    <!ELEMENT caption (#PCDATA)>
+    <!ELEMENT tr (th | td)+>
+    <!ATTLIST tr class CDATA #IMPLIED>
+    <!ELEMENT th (#PCDATA)>
+    <!ATTLIST th rowspan CDATA #IMPLIED
+                 colspan CDATA #IMPLIED
+                 class CDATA #IMPLIED>
+    <!ELEMENT td (#PCDATA)>
+    <!ATTLIST td rowspan CDATA #IMPLIED
+                 colspan CDATA #IMPLIED
+                 class CDATA #IMPLIED>
+
+    <!ELEMENT text (%textContent; | choice)*>
+    <!ATTLIST text check CDATA #IMPLIED
+                   class CDATA #IMPLIED>
+        <!ELEMENT break EMPTY>
+        <!ATTLIST break type (normal | strong) 'normal'>
+        <!ELEMENT emphasis (#PCDATA)>
+        <!ELEMENT strong (#PCDATA)>
+        <!ELEMENT display (#PCDATA)>
+        <!ELEMENT poem (#PCDATA)>
+        <!ELEMENT link (#PCDATA)>
+        <!ATTLIST link to CDATA #REQUIRED
+                       target (blank | self | top) 'blank'>
+
+    <!ELEMENT state EMPTY>
+    <!ATTLIST state name CDATA #REQUIRED
+                  value (false | true) 'true'>
+    <!ELEMENT number EMPTY>
+    <!ATTLIST number name CDATA #REQUIRED
+                     value CDATA #REQUIRED
+                     min CDATA #IMPLIED
+                     max CDATA #IMPLIED>
+    <!ELEMENT string EMPTY>
+    <!ATTLIST string name CDATA #REQUIRED
+                     value CDATA #REQUIRED>
+    <!ELEMENT choice (%textContent; | string | state | number)*>
+    <!ATTLIST choice station CDATA #REQUIRED
+                     check CDATA #IMPLIED
+                     area CDATA #IMPLIED
+                     class CDATA #IMPLIED>
+    <!ELEMENT input (%textContent;)*>
+    <!ATTLIST input station CDATA #REQUIRED
+                     check CDATA #IMPLIED
+                     name CDATA #IMPLIED
+                     class CDATA #IMPLIED>
+
+    <!ELEMENT embed EMPTY>
+    <!ATTLIST embed source CDATA #REQUIRED
+                    check CDATA #IMPLIED
+                    class CDATA #IMPLIED
+                    merge (true | false) 'false'>
+
+<!ELEMENT if ( (%chooseContent;) | (%stationContent;) )>
+<!ATTLIST if check CDATA #IMPLIED>
+<!ELEMENT else ( (%chooseContent;) | (%stationContent;) )>
+    <!ELEMENT choose EMPTY>
+    <!ATTLIST choose station CDATA #REQUIRED>
+
+<!ELEMENT style (
+                  (background?, font?, content?, class*)*
+                )
+    >
+    <!ELEMENT background EMPTY>
+        <!ATTLIST background color CDATA 'default'
+                             image CDATA 'default'
+                             repeat (no-repeat | repeat-x | repeat-y| repeat) 'no-repeat'>
+    <!ELEMENT font EMPTY>
+        <!ATTLIST font color CDATA 'default'
+                       family CDATA 'default'
+                       weight CDATA 'default'
+                       size CDATA 'default'
+                       links (normal | underlined) 'underlined'>
+    <!ELEMENT content EMPTY>
+        <!ATTLIST content width CDATA '500px'
+                         left CDATA 'default'
+                         top CDATA 'default'>
+    <!ELEMENT class EMPTY>
+        <!ATTLIST class name CDATA #REQUIRED
+                        inherits CDATA #IMPLIED
+                        style CDATA #REQUIRED>

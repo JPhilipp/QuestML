@@ -1,0 +1,108 @@
+[Root]
+Most Recent Package=QML-Edit
+
+
+[Package|QML-Edit|Root]
+SubWizProgID=PDWizard.SetupPkgSubWiz
+BuildFolder=C:\main\netz\files\court\goodies\qml_setup
+
+[Package|QML-Edit|Configure DAO ISAMs]
+Applicable=No
+
+[Package|QML-Edit|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|QML-Edit|Files Found]
+
+[Package|QML-Edit|Files Released]
+
+[Package|QML-Edit|Missing Dependency Information]
+C:\WINDOWS\SYSTEM\MSHTML.TLB=
+C:\WINDOWS\SYSTEM\MSXML.DLL=
+
+[Package|QML-Edit|Out-of-Date Dependency Information]
+
+[Package|QML-Edit|Files Added]
+
+[Package|QML-Edit|Files Removed]
+
+[Package|QML-Edit|Files In Project]
+C:\main\netz\files\court\goodies\qml\tool\QMLEdit.exe=Yes
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=Yes
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=Yes
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=Yes
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=Yes
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINDOWS\SYSTEM\VB6DE.DLL=Yes
+C:\WINDOWS\SYSTEM\MSXML.DLL=Yes
+C:\WINDOWS\SYSTEM\MSHTML.TLB=Yes
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=Yes
+C:\WINDOWS\SYSTEM\TABCTDE.DLL=Yes
+C:\WINDOWS\SYSTEM\mscomctl.ocx=Yes
+C:\WINDOWS\SYSTEM\MSCMCDE.DLL=Yes
+C:\WINDOWS\SYSTEM\comdlg32.ocx=Yes
+C:\WINDOWS\SYSTEM\CMDLGDE.DLL=Yes
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=Yes
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=Yes
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=Yes
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=Yes
+
+[Package|QML-Edit|Configure Registry Files]
+Applicable=No
+
+[Package|QML-Edit|Configure Remote Servers]
+Applicable=No
+
+[Package|QML-Edit|Install Locations]
+C:\main\netz\files\court\goodies\qml\tool\QMLEdit.exe=$(AppPath)
+C:\WINDOWS\SYSTEM\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINDOWS\SYSTEM\VB6DE.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSXML.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSHTML.TLB=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTL32.OCX=$(WinSysPath)
+C:\WINDOWS\SYSTEM\TABCTDE.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\mscomctl.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\MSCMCDE.DLL=$(WinSysPath)
+C:\WINDOWS\SYSTEM\comdlg32.ocx=$(WinSysPath)
+C:\WINDOWS\SYSTEM\CMDLGDE.DLL=$(WinSysPath)
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP.EXE=$(AppPath)
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\SETUP1.EXE=$(WinPath)
+C:\WINDOWS\SYSTEM\VB6STKIT.DLL=$(WinSysPathSysFile)
+C:\Programme\Microsoft Visual Studio\VB98\Wizards\PDWizard\ST6UNST.EXE=$(WinPath)
+
+[Package|QML-Edit|Configure Shared Files]
+Applicable=Yes
+C:\main\netz\files\court\goodies\qml\tool\QMLEdit.exe=No
+
+[Package|QML-Edit|Distribution]
+Type=single
+Size=
+Title=QML-Edit 1.1
+
+[Package|QML-Edit|Package]
+PackageFolder=C:\main\netz\files\court\goodies\qml_setup
+ProjectFolder=C:\main\Sprache\files\vb\qml-edit
+ServerSideCab=
+File1=C:\main\netz\files\court\goodies\qml_setup\setup.exe
+File2=C:\main\netz\files\court\goodies\qml_setup\Setup.Lst
+File3=C:\main\netz\files\court\goodies\qml_setup\QMLEdit.CAB
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz
+
+[Package|QML-Edit|IconGroups]
+Group0=QML
+PrivateGroup0=Falsch
+Parent0=$(Programs)
+
+[Package|QML-Edit|QML]
+Icon1=QMLEdit.exe
+Title1=QML-Edit
+StartIn1=$(AppPath)
+Key1=Icon1

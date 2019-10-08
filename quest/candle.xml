@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="true">
+
+<about>
+    <title>Candle</title>
+    <author>Philipp Lenssen</author>
+</about>
+
+
+<station id="southern room">
+<text>You're in the southern room. There's just one exit. A little rat is crawling on the ground.</text>
+<text check="[gave cheese]">The rat seems all happy and fat.</text>
+<choice station="southern room" check="[took cheese] and not [gave cheese]">Feed the rat with your cheese
+<state name="gave cheese"/>
+</choice>
+<choice station="start">Leave the room through the exit</choice>
+</station>
+
+
+<station id="northern room">
+
+<if check="not [took cheese]">
+<text>You're in the northern room.
+There's some cheese on the ground.</text>
+<choice station="[qmlStation]">Take the cheese
+<state name="took cheese"/>
+</choice>
+<choice station="start">Leave the room</choice>
+</if>
+<else>
+<text>You're in the northern room.</text>
+<choice station="start">Leave the room</choice>
+</else>
+</station>
+
+
+<station id="find a candle">
+<text>You look around. <strong>Yes!</strong> There you found a candle.</text>
+<state name="has candle"/>
+<choice station="back">You light the candle</choice>
+</station>
+
+
+<station id="end">
+<text>You despair. This adventure is over.</text>
+</station>
+
+
+<station id="start">
+
+<if check="not [has candle]">
+<text>You're inside a dark room.
+</text>
+<choice station="find a candle">Find a candle</choice>
+<choice station="end">Despair</choice>
+</if>
+<else>
+<text>The room you're in is brightly lit by your candle.
+There's a door leading to the north, and one leading to the south.
+</text>
+<choice station="northern room">Go north</choice>
+<choice station="southern room">Go south</choice>
+</else>
+</station>
+
+
+<station id="smell">
+<include check="not [checked bat]">
+    <in station="start"/>
+    <in station="*room"/>
+</include>
+<text><break type="strong" />
+There's a funny smell surrounding you.</text>
+<choice station="smell find out" check="[has candle]">Find out about the funny smell</choice>
+</station>
+
+<station id="smell find out">
+<text>There's a rotting vampire bat flying around at the top of the ceiling!
+</text>
+<string name="stationBack" value="[qmlLastStation]"/>
+<choice station="bat catch">Catch the bat</choice>
+<choice station="[stationBack]">Leave the bat be</choice>
+</station>
+
+<station id="bat catch">
+<text>The bat is too quick for you to catch.</text>
+<state name="checked bat"/>
+<choice station="[stationBack]">Leave the bat be</choice>
+</station>
+
+</quest>
+

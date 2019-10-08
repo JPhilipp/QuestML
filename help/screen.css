@@ -1,0 +1,341 @@
+.moreInfoTable
+{
+    width: 100%;
+    background-color: #444;
+}
+
+.moreInfoTable td
+{
+    width: 25%;
+    background-color: #fff;
+    padding: 2px;
+    padding-left: 4px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.syntaxName
+{
+    font-weight: bold;
+}
+
+.defaultAttributeValue
+{
+    font-style: italic;
+    color: #050;
+    font-size: 90%;
+}
+
+.filePreview
+{
+    width: 30px;
+}
+
+.alternateEmphasis
+{
+    font-style: italic;
+}
+
+.sampleTable caption
+{
+    font-weight: bold;
+    padding: 4px;
+    border: 1px solid black;
+}
+
+.sampleTable
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.sampleTable caption
+{
+    background-color: #ddd;
+}
+
+.sampleTable th
+{
+    border-bottom: 1px solid black;
+    padding: 3px;
+}
+
+.sampleTable td
+{
+    width: 50%;
+    vertical-align: top;
+    padding: 6px;
+
+}
+
+.effect
+{
+    border-right: 1px solid black;
+    font-style: italic;
+}
+
+td.command,
+td.parameters
+{
+    background-color: #eee;
+    font-weight: bold;
+    border-right: 1px solid black;
+    width: 80px;
+    font-size: 90%;
+    border-bottom: 1px solid black;
+}
+
+td.parameters
+{
+    font-weight: normal;
+}
+
+.commandDescription
+{
+    font-size: 90%;
+    font-style: italic;
+}
+
+.commandSyntax
+{
+    font-family: "courier new", courier, arial, sans-serif;
+    width: 230px;
+    font-size: 9pt;
+}
+
+tr.alternative td
+{
+    background-color: #eee;
+}
+
+tr.alternative td.command,
+tr.alternative td.parameters
+{
+    background-color: #ddd;
+}
+
+.before
+{
+    border-left: 1px solid #000;
+    border-right: 1px solid #999;
+}
+
+#stringConversion td.command
+{
+    background-color: #ddd;
+}
+
+.url
+{
+    background-color: #eee;
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+    width: 300px;
+    font-size: 90%;
+}
+
+.urlDescription
+{
+    padding-left: 30px;
+    padding-top: 32px;
+    font-style: italic;
+    font-size: 90%;
+    border-bottom: 1px solid #000;
+}
+
+.usedInSample
+{
+    font-family: arial;
+}
+
+.result
+{
+    border-top: 2px solid black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.keyword
+{
+    background-color: yellow;
+}
+
+.sampleTable td.command pre
+{
+    font-weight: normal;
+}
+
+.returns
+{
+    border-right: 1px solid black;
+    text-align: right;
+}
+
+#componentsOverview td.command
+{
+    border-right: 0;
+}
+
+#componentsOverview td.commandDescription
+{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#componentsOverview td.command,
+#componentsOverview td.parameters
+{
+    background-color: rgb(238,237,219);
+}
+
+#componentsOverview .alternative td.command,
+#componentsOverview .alternative td.parameters
+{
+    background-color: rgb(217,215,172);
+}
+
+#componentsOverview td.commandSyntax
+{
+    background-color: #eee;
+}
+
+#componentsOverview .alternative td.commandSyntax
+{
+    background-color: #ddd;
+}
+
+.parameters em
+{
+    font-weight: normal;
+    font-style: italic;
+}
+
+.emailAuthor
+{
+    font-weight: normal;
+    font-style: italic;
+}
+
+caption
+{
+    font-weight: bold;
+}
+
+#syntaxTable ul
+{
+    margin-left: 18px;
+}
+
+#syntaxTable a
+{
+    text-decoration: none;
+}
+
+#syntaxTable a:hover
+{
+    text-decoration: underline;
+}
+
+li.element
+{
+    list-style-image: url(icon/element.gif);
+    margin-bottom: 10px;
+}
+
+li.attribute
+{
+    list-style-image: url(icon/attribute.gif);
+}
+
+li.value
+{
+    list-style-image: url(icon/value.gif);
+}
+
+li.defaultValue
+{
+    list-style-image: url(icon/value_default.gif);
+}
+
+li.topicMedia
+{
+    list-style-image: url(icon/media.gif);
+}
+
+li.topicStates
+{
+    list-style-image: url(icon/states.gif);
+}
+
+li.topicBranching
+{
+    list-style-image: url(icon/branching.gif);
+}
+
+li.topicText
+{
+    list-style-image: url(icon/text.gif);
+}
+
+li.topicStation
+{
+    list-style-image: url(icon/station.gif);
+}
+
+span.element
+{
+    font-weight: bold;
+}
+
+span.attribute
+{
+    font-size: 90%;
+}
+
+span.value
+{
+    font-size: 80%;
+    font-style: italic;
+}
+
+code em
+{
+    font-style: normal;
+    background-color: rgb(255,227,199);
+}
+
+.syntaxText
+{
+    color: rgb(100,50,0);
+}
+
+.syntaxChoice
+{
+    color: rgb(0,100,50);
+}
+.syntaxInline
+{
+    font-style: italic;
+}
+
+.description
+{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.subnodes
+{
+    margin-top: 40px;
+    padding-top: 0;
+}
+
+.sampleIntro
+{
+    font-weight: bold;
+    margin-bottom: 6px;
+}

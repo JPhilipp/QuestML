@@ -1,0 +1,1694 @@
+<?xml version="1.0"?>
+<syntax>
+
+<topic name="Media">
+
+    <description>
+        Media describes the non-nextual elements to describe or illustrate a station.
+        You can use both music and pictures.
+    </description>
+
+    <sample>
+        &lt;image source=&quot;media/treasure_chest.gif&quot; /&gt;<br/>
+        &lt;text&gt;You open the treasure chest.&lt;/text&gt;<br/>
+        [...]
+    </sample>
+
+    <element name="image">
+        <description>
+            Includes an image to be shown with the station.<br/><br/>
+            Paint Shop Pro 4 is a good program to create, edit and
+            browse pictures. You can get it at <a href="http://www.shareware.com">Shareware.com</a>
+            (search for "Paint Shop Pro").
+            <br/><br/>
+            Images can be included multiple times. You can put them right in the station,
+            or inside text content, or inside choices. Images can be positioned on the
+            page by using the "class" attribute.
+        </description>
+        <sample>
+            &lt;<em>image</em> source=&quot;media/treasure_chest.gif&quot; /&gt;<br/>
+            &lt;text&gt;You open the treasure chest.&lt;/text&gt;<br/>
+            [...]
+        </sample>
+        <keywords>Imagemap,usemap,graphics</keywords>
+
+        <attribute name="source">
+            <description>
+                The source of an image, relative to the top QML folder. Typically, located in the
+                "media" subfolder. You can use GIF, Animated GIF, JPEG and PNG images.<br/><br/>
+                Paint Shop Pro 4 is a good program to create, edit and
+                browse pictures. You can get it at <a href="http://www.shareware.com">Shareware.com</a>
+                (search for "Paint Shop Pro").
+            </description>
+            <sample>
+                &lt;image <em>source</em>=&quot;media/treasure_chest.gif&quot; /&gt;<br/>
+                &lt;text&gt;You open the treasure chest.&lt;/text&gt;<br/>
+                [...]
+            </sample>
+
+        </attribute>
+
+        <attribute name="text">
+            <description>
+                The alternative text to an image in case it's not displayed.<br/>
+                It might be the case the user turned off images to speed up loading,
+                or a Text-To-Speech browser is used.
+            </description>
+            <sample>
+                &lt;image source=&quot;media/treasure_chest.gif&quot;
+                        <em>text</em>="There's lots of shiny gold coins." /&gt;<br/>
+                [...]
+            </sample>
+        </attribute>
+
+        <attribute name="default">
+            <description>
+                This value determines if the image will be used for following stations.
+            </description>
+            <sample>
+                &lt;image source=&quot;media/treasure_chest.gif&quot;
+                        <em>default</em>="true" /&gt;<br/>
+                [...]
+            </sample>
+
+            <value name="true">
+                <description>
+                    All the following stations will have this image.
+                </description>
+                <sample>
+                    &lt;image source=&quot;media/treasure_chest.gif&quot;
+                            default="<em>true</em>" /&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+            <value name="false">
+                <description>
+                    The default image is turned off again. No image source
+                    is needed if the default image is set to "false"; use source="none".
+                </description>
+                <sample>
+                    &lt;image source="none" default="<em>false</em>" /&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+        </attribute>
+
+        <attribute name="class" link="class"/>
+
+    </element>
+
+    <element name="music">
+        <description>
+            Will play a music or sound effect with the station.<br/>
+            You may want to check the <a href="http://www.cakewalk.com">Cakewalk homepage</a> for music programs.
+            <br /><br />
+            <strong>Support for this element is optional</strong>:
+            conforming QML-Interpreters can disregard this element
+            for reasons of backwards-compatibility in browsers.
+        </description>
+        <sample>
+            &lt;<em>music</em> source="media/magic_tune.mid" /&gt;<br/>
+            &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+            [...]
+        </sample>
+
+        <attribute name="source">
+            <description>
+                The source of the music that is played here. The file format
+                can be MIDI (*.MID) for music and WAVE (*.WAV) for sound-effects
+                like speech or explosion.<br/>
+                You may want to check the <a href="http://www.cakewalk.com">Cakewalk homepage</a> for music programs.
+            </description>
+            <sample>
+                &lt;music <em>source</em>="media/magic_tune.mid" /&gt;<br/>
+                &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+                [...]
+                
+            </sample>
+
+        </attribute>
+
+        <attribute name="loop">
+            <description>
+                Determines wether or not the music is restarted once it finished playing.
+            </description>
+            <sample>
+                &lt;music source="media/magic_tune.mid" <em>loop</em>="true" /&gt;<br/>
+                &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+                [...]
+            </sample>
+
+            <value name="true">
+                <description>
+                    The music will be kept on playing infinitely -- good for background music using MIDI files.
+                </description>
+                <sample>
+                    &lt;music source="media/magic_tune.mid" loop="<em>true</em>" /&gt;<br/>
+                    &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;break/&gt;<br/>
+                    He won't stop.&lt;/text&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+            <value name="false">
+                <description>
+                    The music will be played only once -- good for sound effects using WAVE files.
+                </description>
+                <sample>
+                    &lt;music source="media/magic_tune.mid" loop="<em>true</em>" /&gt;<br/>
+                    &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;break/&gt;<br/>
+                    He stops after playing it once.&lt;/text&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+        </attribute>
+
+        <attribute name="default">
+            <description>
+                Wether or not the music will be used as new default for all following stations.
+            </description>
+            <sample>
+                &lt;music source="media/magic_tune.mid" <em>default</em>="true" /&gt;<br/>
+                &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+                [...]
+            </sample>
+
+            <value name="true">
+                <description>
+                    This music will be used as new default music.
+                </description>
+                <sample>
+                    &lt;music source="media/magic_tune.mid" default="<em>true</em>" /&gt;<br/>
+                    &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+            <value name="false">
+                <description>
+                    This default music (if set) will be turned off. The source has to set to
+                    "none" if you don't want to use a music for this station.
+                </description>
+                <sample>
+                    &lt;music source="none" default="<em>false</em>" /&gt;<br/>
+                    &lt;text&gt;The boy picks up the fiddle and plays a magic tune.&lt;/text&gt;<br/>
+                    [...]
+                </sample>
+            </value>
+
+        </attribute>
+
+    </element>
+
+</topic>
+
+<topic name="States">
+
+    <description>
+        States keep track of the game history. Everytime the player does
+        something which should be memorized, you set a state which you
+        can check in future stations.
+    </description>
+
+    <sample>
+        &lt;text&gt;You break up the treasure chest and put a shiny sceptre in your bag.<br/>
+        &lt;/text&gt;<br/>
+        &lt;state name=&quot;has sceptre&quot;&gt;<br/>
+        [...]
+    </sample>
+
+    <element name="state">
+        <description>
+            Sets a state.<br/>
+            You can keep track of various events in the game, like if the
+            player saw something, picked something up, turned on the oven, and so on.
+        </description>
+        <sample>
+            &lt;text&gt;You break up the treasure chest and put a shiny sceptre in your bag.<br/>
+            &lt;/text&gt;<br/>
+            &lt;<em>state</em> name=&quot;has sceptre&quot;&gt;<br/>
+            [...]
+        </sample>
+
+        <attribute name="name">
+            <description>
+                You can define a small text to name a state.<br/>
+                For example:
+                <ul>
+                    <li><kbd>"stole from beggar"</kbd></li>
+                    <li><kbd>"destroyed evil wizard"</kbd></li>
+                    <li><kbd>"has Rubin Sword"</kbd></li>
+                    <li><kbd>"crashed door to Glass Palace"</kbd></li>
+                </ul>
+                <br/>
+                States are not case-sensitive.
+            </description>
+            <sample>
+                    &lt;text&gt;You put the Rubin Sword into your pocket.&lt;/text&gt;<br/>
+                    &lt;state <em>name</em>=&quot;has Rubin Sword&quot; /&gt;<br/>
+                    &lt;choice station=&quot;exitRoom&quot;&gt;You exit the room&lt;/choice&gt;
+            </sample>
+        </attribute>
+
+        <attribute name="value">
+            <description>
+                States can be either true or false, but
+                "value" doesn't have to be explicitly set unless you want the value to be false.
+            </description>
+            <sample>
+                    &lt;text&gt;You drop the Rubin Sword.&lt;/text&gt;<br/>
+                    &lt;state name=&quot;has Rubin Sword&quot; <em>value</em>="false" /&gt;<br/>
+                    &lt;choice station=&quot;exitRoom&quot;&gt;You exit the room&lt;/choice&gt;
+            </sample>
+        </attribute>
+        
+    </element>
+
+    <element name="number">
+        <description>
+            Numbers handle values such as: the player score, the player energy,
+            the number of gold coins the player has, or any other item that appears
+            multiple times.
+        </description>
+
+        <sample>
+            &lt;text&gt;You see a big treasure and stuff yourself<br/>
+            <tab/>with 50 gold coins.<br/>
+            &lt;/text&gt;<br/>
+            &lt;state name=&quot;treasureChestEmpty&quot; /&gt;<br/>
+            &lt;<em>number</em> name=&quot;gold&quot; value=&quot;[gold] + 50&quot; /&gt;<br/>
+            &lt;choice station=&quot;back&quot;&gt;Close treasure chest&lt;/choice&gt;<br/>
+        </sample>
+
+        <attribute name="name">
+            <description>
+                The name of the number (how you will refer to the value later on).<br/>
+                For example:
+                "gold coins", "silver", "arrows", "player agility", "Player Luck", and so on.
+                Spaces are allowed.
+            </description>
+            <sample>
+                &lt;text&gt;You see a big treasure and stuff yourself<br/>
+                <tab/>with 50 gold coins.<br/>
+                &lt;/text&gt;<br/>
+                &lt;state name=&quot;treasureChestEmpty&quot; /&gt;<br/>
+                &lt;number <em>name</em>=&quot;gold&quot; value=&quot;[gold] + 50&quot; /&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;Close treasure chest&lt;/choice&gt;<br/>
+             </sample>
+        </attribute>
+
+        <attribute name="value">
+            <description>
+                The value of the number, like "50". You can use operators like
+                "+" and "-" to handle calculations. For example, 
+                "10 + [a] * (2 / [b])" is a valid calculation.<br/><br/>
+                <table class="sampleTable">
+                    <caption>Number operators</caption>
+                    <tr>
+                        <th>Operator</th><th>Description</th><th>Usage</th>
+                    </tr>
+                    <tr>
+                        <td class="command">+</td>
+                        <td class="commandDescription">Sum a number</td>
+                        <td class="commandSyntax">value="[a] + 4"</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">-</td>
+                        <td class="commandDescription">Subtract a number</td>
+                        <td class="commandSyntax">value="[a] - 3"</td>
+                    </tr>
+                    <tr>
+                        <td class="command">*</td>
+                        <td class="commandDescription">Multiply a number</td>
+                        <td class="commandSyntax">value="[a] * [b]"</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">/</td>
+                        <td class="commandDescription">Divide a number</td>
+                        <td class="commandSyntax">value="[a] / 2"</td>
+                    </tr>
+                    <tr>
+                        <td class="command">^</td>
+                        <td class="commandDescription">Raise a number to the power of an exponent</td>
+                        <td class="commandSyntax">value="[a] ^ 2"</td>
+                    </tr>
+                </table>
+            </description>
+            <sample>
+                &lt;text&gt;You see a big treasure and stuff yourself<br/>
+                <tab/>with 50 gold coins.<br/>
+                &lt;/text&gt;<br/>
+                &lt;state name=&quot;treasureChestEmpty&quot; /&gt;<br/>
+                &lt;number name=&quot;gold&quot; <em>value</em>=&quot;[gold] + 50&quot; /&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;Close treasure chest&lt;/choice&gt;<br/>
+             </sample>
+            <keywords>addition,subtraction,multiplication,division,math</keywords>
+
+            <inline name="[state]" link="inlineState"/>
+
+        </attribute>
+
+        <attribute name="min">
+            <description>
+                The lowest value to which a number can be set (ie., by calculations).
+                For example if the min-value is set to "-20", and you subtract 30 from 0,
+                you will end up with -20 instead of -30.<br/>The default min-value is -10000.
+            </description>
+            <sample>
+                &lt;text&gt;You find a little leather bag.&lt;break/&gt;<br/>
+                <tab/>Might come in handy if you ever need to<br/>
+                <tab/>carry many gold coins.<br/>
+                &lt;/text&gt;<br/>
+                &lt;state name=&quot;has little leather bag&quot;/&gt;<br/>
+                &lt;number value=&quot;[gold]&quot; name=&quot;gold&quot; <em>min</em>=&quot;0&quot; max=&quot;100&quot;/&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;Continue&lt;/choice&gt;
+             </sample>
+        </attribute>
+
+        <attribute name="max">
+            <description>
+                The highest value to which a number can be set (ie., by calculations).
+                For example if the max-value is set to "20", and you add 30 to 0,
+                you will end up with 20 instead of 30.<br/>The default max-value is 10000.
+            </description>
+            <sample>
+                &lt;text&gt;You find a little leather bag.&lt;break/&gt;<br/>
+                <tab/>Might come in handy if you ever need to<br/>
+                <tab/>carry many gold coins.<br/>
+                &lt;/text&gt;<br/>
+                &lt;state name=&quot;has little leather bag&quot;/&gt;<br/>
+                &lt;number value=&quot;[gold]&quot; name=&quot;gold&quot; min=&quot;0&quot; <em>max</em>=&quot;100&quot;/&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;Continue&lt;/choice&gt;
+             </sample>
+        </attribute>
+
+    </element>
+
+    <element name="string">
+        <description>
+            Strings handle texts, for example those the user enters.
+            When checking for strings, you can use comparison
+            methods (ie., "[function containsWord([a], 'test')]").
+        </description>
+
+        <sample>
+            &lt;text&gt;&quot;Your name shall be &#091;string playerName&#093;!&quot;<br/>
+            &lt;/text&gt;<br/>
+            &lt;<em>string</em> name=&quot;playerName&quot; value=&quot;Joe&quot;/&gt;<br/>
+         </sample>
+
+        <attribute name="name">
+            <description>
+                The name of the string (how you will refer to the value later on).<br/>
+                For example:
+                "name of Player", "secretWord", "player input", and so on.
+                Spaces are allowed.
+            </description>
+            <sample>
+                &lt;text&gt;&quot;Your name shall be &#091;string playerName&#093;!&quot;<br/>
+                &lt;/text&gt;<br/>
+                &lt;string <em>name</em>=&quot;playerName&quot; value=&quot;Joe&quot;/&gt;<br/>
+             </sample>
+        </attribute>
+
+        <attribute name="value">
+            <description>
+                The value of the string, like "Joe", or "Hello World".
+                When checking for strings, you can use comparison
+                methods (ie., "[function containsWord([a], 'test')]").
+            </description>
+            <sample>
+                &lt;text&gt;&quot;Your name shall be &#091;string playerName&#093;!&quot;<br/>
+                &lt;/text&gt;<br/>
+                &lt;string name=&quot;playerName&quot; <em>value</em>=&quot;Joe&quot;/&gt;<br/>
+             </sample>
+
+            <inline name="[state]" link="inlineState"/>
+
+        </attribute>
+
+    </element>
+   
+</topic>
+
+<topic name="Branching">
+
+    <description>
+        Some decisions made by the player take a direct effect. Other decisions
+        will not take effect until much later in the quest.
+        If you set states at certain stations, you can check them later on and decide
+        where to take the player. All of this will be behind the scenes and cannot
+        be seen by the player.
+    </description>
+
+    <sample>
+        &lt;text&gt;There are three exits. Where do you want to go?<br/>
+        &lt;/text&gt;<br/>
+        &lt;choice station=&quot;roomNorth&quot;&gt;North&lt;/choice&gt;<br/>
+        &lt;choice station=&quot;roomSouth&quot;&gt;South&lt;/choice&gt;<br/>
+        &lt;choice station=&quot;roomWest&quot;&gt;West&lt;/choice&gt;
+    </sample>
+
+    <element name="choice">
+        <description>
+            A choice is a link to take the player to a new station.<br/>
+           You can use as many choices as you want, from none at all to a hundred or more.
+           (Note that when you don't give a single choice, the game is over.)
+            <br/><br/>
+            Choice content can contain normal text formatting like <kbd>&lt;emphasis&gt;...&lt;/emphasis&gt;</kbd>.
+            <br/><br/>
+            You can also use the choice attribute "area" to make a choice be part of an image-map link.
+        </description>
+        <sample>
+            &lt;text&gt;There are three exits. Where do you want to go?<br/>
+            &lt;/text&gt;<br/>
+            &lt;<em>choice</em> station=&quot;roomNorth&quot;&gt;North&lt;/choice&gt;<br/>
+            &lt;<em>choice</em> station=&quot;roomSouth&quot;&gt;South&lt;/choice&gt;<br/>
+            &lt;<em>choice</em> station=&quot;roomWest&quot;&gt;West&lt;/choice&gt;
+        </sample>
+
+        <attribute name="station">
+            <description>
+                The station of a choice must always be given and is the name of the id of the
+                station the player will be taken to.
+            </description>
+            <sample>
+                &lt;text&gt;There are three exits. Where do you want to go?<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice <em>station</em>=&quot;roomNorth&quot;&gt;North&lt;/choice&gt;<br/>
+                &lt;choice <em>station</em>=&quot;roomSouth&quot;&gt;South&lt;/choice&gt;<br/>
+                &lt;choice <em>station</em>=&quot;roomWest&quot;&gt;West&lt;/choice&gt;
+            </sample>
+        </attribute>
+
+        <attribute name="check">
+            <description>
+                Checks for a certain state (or number/ string) and only displays the choice if the expression is
+                true (or false, if you set "is" to false).
+                <br/>Note that the game is over if not a single choice is displayed.
+            </description>
+            <sample>
+                &lt;text&gt;You look around. Where do you want to go?<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice station=&quot;roomNorth&quot;<br/>
+                <tab/><em>check</em>="[found hidden door]"&gt;Through the hidden door<br/>
+                &lt;/choice&gt;<br/>
+                &lt;choice station=&quot;roomSouth&quot;&gt;Through the wooden door&lt;/choice&gt;
+            </sample>
+        </attribute>
+
+        <attribute name="area">
+
+            <description>
+                You can make a choice be a polygon shape of an image (a link of an image-map).
+                In order to do so, first create the image-map with the program "webmap.exe" found
+                in the tool folder. From the menu, use "Edit - Polygon". Save the final map to the
+                clipboard, and from the QML-Edit menu use "Insert - Image map".
+            </description>
+            <sample>
+                &lt;image source=&quot;media/cary.gif&quot;/&gt;<br/>
+                &lt;text&gt;This is Cary Grant. You can click on his nose.<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice station=&quot;nose&quot; check=&quot;[visits(nose)] = 0&quot;<br/>
+                <tab/><tab/><em>area</em>=&quot;32,154,12,191,18,208,29,205,48,198,31,191,40,158&quot;&gt;<br/>
+                <tab/>Cary Grant's nose<br/>
+                &lt;/choice&gt;<br/>
+                &lt;choice station=&quot;ear&quot;&gt;<br/>
+                <tab/>Cary Grant's ear is only available as link<br/>
+                &lt;/choice&gt;
+                &lt;choice station=&quot;chin&quot;&gt;<br/>
+                <tab/>Cary Grant's chin is only available as link<br/>
+                &lt;/choice&gt;<br/>
+            </sample>
+
+        </attribute>
+
+        <attribute name="class" link="class"/>
+    
+    </element>
+
+    <element name="if">
+        <description>
+            The if-element lets you check states. It wraps the content (like text and choices)
+            and will only display them the expression it holds is true.
+            You can use multiple if-elements (the first that's true will be chosen).<br/>
+            At the end of a station using "if", you must use "else".
+        </description>
+
+        <sample>
+            &lt;<em>if</em> check=&quot;[has torch]&quot;&gt;<br/>
+            <tab/>&lt;text&gt;Your torch lightens up the room.<br/>
+            <tab/><tab/>You notice a small rusty shield<br/>
+            <tab/><tab/>lying on the floor and pick it up.<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;state name=&quot;has shield&quot;/&gt;<br/>
+            <tab/>&lt;choice station=&quot;back&quot;&gt;You leave the room&lt;/choice&gt;<br/>
+            &lt;/<em>if</em>&gt;<br/>
+            &lt;else&gt;<br/>
+            <tab/>&lt;text&gt;This room is too dark to see anything.&lt;/text&gt;<br/>
+            <tab/>&lt;choice station=&quot;back&quot;&gt;You leave it&lt;/choice&gt;<br/>
+            &lt;/else&gt;
+        </sample>
+
+        <attribute name="check" id="ifState">
+            <description>
+                This attribute holds the boolean expression of the state and can contain
+                numbers/ strings. For example, "([dice] = 10 or [dice] = 12) and not [has beer]" is
+                a valid check. Note that the characters "&lt;" and "&gt;" to compare numbers
+                should be replaced by "lower" and "greater". Optionally, you can use "equal" instead
+                of "=". Example: "[dice] above 3".
+            </description>
+
+            <sample>
+                &lt;if <em>check</em>=&quot;[has torch]&quot;&gt;<br/>
+                <tab/>&lt;text&gt;Your torch lightens up the room.<br/>
+                <tab/><tab/>You notice a small rusty shield<br/>
+                <tab/><tab/>lying on the floor and pick it up.<br/>
+                <tab/>&lt;/text&gt;<br/>
+                <tab/>&lt;state name=&quot;has shield&quot;/&gt;<br/>
+                <tab/>&lt;choice station=&quot;back&quot;&gt;You leave the room&lt;/choice&gt;<br/>
+                &lt;/if&gt;<br/>
+                &lt;else&gt;<br/>
+                <tab/>&lt;text&gt;This room is too dark to see anything.&lt;/text&gt;<br/>
+                <tab/>&lt;choice station=&quot;back&quot;&gt;You leave it&lt;/choice&gt;<br/>
+                &lt;/else&gt;
+            </sample>
+        </attribute>
+
+    </element>
+
+    <element name="else">
+        <description>
+            Whenever you test against a state with the if-element, you need to
+            write an alternative display in case no if-expression of a station
+            turns out to be true. Therefore, whenever you write one or more if-elements
+            to a station, you need to put a single else-element at the end of the
+            station.
+        </description>
+
+        <sample>
+            &lt;if check=&quot;[has torch]&quot;&gt;<br/>
+            <tab/>&lt;text&gt;Your torch lightens up the room.<br/>
+            <tab/><tab/>You notice a small rusty shield<br/>
+            <tab/><tab/>lying on the floor and pick it up.<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;state name=&quot;has shield&quot;/&gt;<br/>
+            <tab/>&lt;choice station=&quot;back&quot;&gt;You leave the room&lt;/choice&gt;<br/>
+            &lt;/if&gt;<br/>
+            &lt;<em>else</em>&gt;<br/>
+            <tab/>&lt;text&gt;This room is too dark to see anything.&lt;/text&gt;<br/>
+            <tab/>&lt;choice station=&quot;back&quot;&gt;You leave it&lt;/choice&gt;<br/>
+            &lt;/<em>else</em>&gt;
+        </sample>
+
+    </element>
+
+    <element name="choose">
+        <description>
+            Sometimes, after checking states with "if", you may decide you don't
+            want to display content at this station at all, but rather automatically
+            forward to another station. You can use the choose-element to do that.
+            It's a bit like the choice element, only that you make the decision to
+            follow it. Since there's no text to be displayed, the choice-element
+            is empty (wraps no content).
+        </description>
+
+        <sample>
+            &lt;if check=&quot;[has travelled to village before]&quot;&gt;<br/>
+            <tab/>&lt;image sourc=&quot;media/village.gif&quot;/&gt;<br/>
+            <tab/>&lt;text&gt;It's a long travel.&lt;break/&gt;<br/>
+            <tab/><tab/>You meet many strange creatures on your way.<br/>
+            <tab/><tab/>Finally, you arrive at the village.<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;choice station=&quot;village&quot;&gt;Enter the village&lt;/choice&gt;<br/>
+            &lt;/if&gt;<br/>
+            &lt;else&gt;<br/>
+            <tab/>&lt;<em>choose</em> station=&quot;village&quot; /&gt;<br/>
+            &lt;/else&gt;
+        </sample>
+
+        <value name="station">
+            <description>
+                Selects the name of the station to redirect to.
+            </description>
+
+            <sample>
+                &lt;if check=&quot;[has travelled to village before]&quot;&gt;<br/>
+                <tab/>&lt;image sourc=&quot;media/village.gif&quot;/&gt;<br/>
+                <tab/>&lt;text&gt;It's a long travel.&lt;break/&gt;<br/>
+                <tab/><tab/>You meet many strange creatures on your way.<br/>
+                <tab/><tab/>Finally, you arrive at the village.<br/>
+                <tab/>&lt;/text&gt;<br/>
+                <tab/>&lt;choice station=&quot;village&quot;&gt;Enter the village&lt;/choice&gt;<br/>
+                &lt;/if&gt;<br/>
+                &lt;else&gt;<br/>
+                <tab/>&lt;choose <em>station</em>=&quot;village&quot; /&gt;<br/>
+                &lt;/else&gt;
+            </sample>
+        </value>
+
+    </element>
+
+    <element name="input">
+        <description>
+            "Input" will provoke a user text prompt. One use of the input is if you want the
+            player to do something to solve a riddle, but giving the player
+            a choice of answers would give away the riddle. The input is not
+            case-sensitive. Another use, when combined with strings, is to let the player
+            input names for things. Inputs are used much like choices.
+        </description>
+        <sample>
+            &lt;station id=&quot;unicorn&quot;&gt;<br/>
+            <tab/>&lt;text&gt;<br/>
+            <tab/>&quot;Do you know what I am?&quot; she asks you.<br/>
+            <tab/>&lt;break/&gt;<br/>
+            <tab/>&lt;emphasis&gt;What do you answer?&lt;/emphasis&gt;<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;<em>input</em> station=&quot;unicorn answer&quot;&gt;OK&lt;/input&gt;<br/>
+            <tab/>&lt;choice station=&quot;back&quot;&gt;You don't answer and
+                    leave&lt;/choice&gt;<br/>
+            <tab/>&lt;/station&gt;<br/>
+            <br/>
+            &lt;station id=&quot;unicorn answer&quot;&gt;<br/>
+            <tab/>&lt;if check=&quot;&#091;qmlInput&#093; = 'unicorn'&quot;&gt;<br/>
+            <tab/>&lt;text&gt;&quot;Oh, you do know me!&quot; she cries.<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;state name=&quot;knows unicorn&quot;/&gt;<br/>
+            <tab/>&lt;choice station=&quot;unicorn continue&quot;&gt;Continue&lt;/choice&gt;<br/>
+            <tab/>&lt;/if&gt;<br/>
+            <tab/>&lt;else&gt;<br/>
+            <tab/>&lt;text&gt;&quot;So that's what you take me for?&quot; she sighs.<br/>
+            <tab/>&lt;/text&gt;<br/>
+            <tab/>&lt;choice station=&quot;unicorn continue&quot;&gt;Continue&lt;/choice&gt;<br/>
+            <tab/>&lt;/else&gt;<br/>
+            &lt;/station&gt;<br/>
+        </sample>
+
+        <attribute name="station">
+            <description>
+                The station the user will be taken to, just like in a choice element.
+            </description>
+            <sample>
+                &lt;text&gt;<br/>
+                <tab/>&quot;Do you know what I am?&quot; she asks you.<br/>
+                <tab/>&lt;break/&gt;<br/>
+                <tab/>&lt;emphasis&gt;What do you answer?&lt;/emphasis&gt;<br/>
+                &lt;/text&gt;<br/>
+                &lt;input <em>station</em>=&quot;unicorn answer&quot;&gt;OK&lt;/input&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;You don't answer and
+                        leave&lt;/choice&gt;
+            </sample>
+
+       </attribute>
+
+        <attribute name="name">
+            <description>
+                You can assign user input to a string variable of this name.
+                The default value is <kbd>qmlInput</kbd>.
+            </description>
+            <sample>
+            <sample>
+                &lt;text&gt;<br/>
+                <tab/>&quot;Do you know what I am?&quot; she asks you.<br/>
+                <tab/>&lt;break/&gt;<br/>
+                <tab/>&lt;emphasis&gt;What do you answer?&lt;/emphasis&gt;<br/>
+                &lt;/text&gt;<br/>
+                &lt;input station=&quot;unicorn answer&quot; <em>name</em>="unicornName"&gt;OK&lt;/input&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;You don't answer and
+                        leave&lt;/choice&gt;
+            </sample>
+            </sample>
+
+       </attribute>
+
+    </element>
+
+</topic>
+
+<topic name="Text">
+
+    <description>
+        You can format text in a variety of ways.<br/>
+        You can also directly output number and string variables using a special syntax.
+    </description>
+    
+    <sample>
+        &lt;text&gt;<br/>
+        <tab/>You arrive at a shabby cot.&lt;break/&gt;<br/>
+        <tab/>In washed out rusty letters you decipher a wooden pub<br/>
+        <tab/>sign:&lt;break type=&quot;strong&quot;/&gt;<br/>
+        <tab/>&lt;display&gt;Rising Sun&lt;/display&gt;<br/>
+        <tab/>&lt;poem&gt;<br/>
+        <tab/><tab/>Fever, chills and muscle ache<br/>
+        <tab/><tab/>Makes you wanna take a break<br/>
+        <tab/><tab/>Come to greet the rising sun<br/>
+        <tab/><tab/>From inside here<br/>
+        <tab/><tab/>And have some fun<br/>
+        <tab/>&lt;/poem&gt;<br/>
+        &lt;/text&gt;<br/>
+        &lt;choice station=&quot;bar&quot;&gt;You enter&lt;/choice&gt;<br/>
+        &lt;choice station=&quot;exit&quot;&gt;You wait&lt;/choice&gt;<br/>
+    </sample>
+
+    <element name="text">
+        <description>
+            This element holds the text information to a station. It will be displayed
+            when the player arrives at the station.
+        </description>
+
+        <sample>
+            &lt;<em>text</em>&gt;You're in a dark room.&lt;/<em>text</em>&gt;<br/>
+            &lt;choice station=&quot;outsideRoom&quot;&gt;Leave the room&lt;/choice&gt;
+        </sample>
+
+        <attribute name="class" id="class">
+            <description>
+                A class is used to attach a certain style to a text, a choice, an image
+                or text formatting elements like emphasis.
+                For example, you may want to give the speech of a certain monster
+                a special tone; you would define the text to be of class "monster",
+                and create and edit this class in the Project --&gt; Style --&gt; Classes
+                dialog. The style language is CSS.<br/>
+                <br/>
+                <table class="sampleTable">
+                    <caption>Style samples</caption>
+                    <tr>
+                        <th>Appearance</th><th>Syntax</th>
+                    </tr>
+                    <tr>
+                        <td class="effect">Big white letters on dark ground</td>
+                        <td>white; font-size: 120%; background-color: black;</td>
+                    </tr>
+                    <tr>
+                        <td class="effect">Italic, underlined text</td>
+                        <td>font-style: italic; text-decoration: underline;</td>
+                    </tr>
+                    <tr>
+                        <td class="effect">Text with a thin black border around it</td>
+                        <td>border: 1px solid black;</td>
+                    </tr>
+                    <tr>
+                        <td class="effect">Text that is positioned at the top left of the screen</td>
+                        <td>position: absolute; left: 10px; top: 20px;</td>
+                    </tr>
+                    <tr>
+                        <td class="effect">Text that is positioned at a variable place, depending on a QML-number that is set in a station.
+                        </td>
+                        <td>position: absolute; left: [x]px; top: [y]px;</td>
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                There are already default classes available for images
+                and choices. You can override them by using your own classes, or use
+                the default class name to automatically style all the elements of this type.
+                <br/>
+                <br/>
+                <table class="sampleTable">
+                    <caption>Default classes</caption>
+                    <tr>
+                        <th>Class name</th><th>Description</th><th>CSS sample</th>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlImage</td>
+                        <td class="commandDescription">All images that are included in a station</td>
+                        <td class="commandSyntax">position: absolute; left: 300px; top: 20px; border: 2px solid black;</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">qmlChoice</td>
+                        <td class="commandDescription">All choices. By default, if you style a choice, the bullet-item will
+                            disappear. You can make it appear again by using the CSS property list-style-type</td>
+                        <td class="commandSyntax">list-style-type: circle; color: yellow; font-weight: bold;</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlLink</td>
+                        <td class="commandDescription">The link inside a choice. If you style a choice,
+                            the actual link inside the list item will override some of your definitions. Use qmlLink
+                            to attach a style to the link itself.</td>
+                        <td class="commandSyntax">color: rgb(200,100,150); text-decoration: none;</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">qmlEmphasis</td>
+                        <td class="commandDescription">Styles all emphasis elements used in text formatting.</td>
+                        <td class="commandSyntax">font-style: normal; color: red;</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlStrong</td>
+                        <td class="commandDescription">Styles all strong elements (for increased emphasis) used in text formatting.</td>
+                        <td class="commandSyntax">font-weight: normal; font-style: italic; text-decoration: underline;</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">qmlDisplay</td>
+                        <td class="commandDescription">Styles all display elements used in text formatting.</td>
+                        <td class="commandSyntax">font-family: "courier new", courier, monospace; border: 2px outset; padding: 5px;</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlTable</td>
+                        <td class="commandDescription">Styles all table elements.</td>
+                        <td class="commandSyntax">border: 1px solid black; border-collapse: collapse;</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">qmlCaption</td>
+                        <td class="commandDescription">Styles all table caption elements.</td>
+                        <td class="commandSyntax">background-color: #eee;</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlTr</td>
+                        <td class="commandDescription">Styles all table tr (row) elements.</td>
+                        <td class="commandSyntax">background-color: #eef;</td>
+                    </tr>
+                    <tr class="alternative">
+                        <td class="command">qmlTh</td>
+                        <td class="commandDescription">Styles all table th (heading) elements.</td>
+                        <td class="commandSyntax">background-color: #ccc;</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlTd</td>
+                        <td class="commandDescription">Styles all table td (cell) elements.</td>
+                        <td class="commandSyntax">background-color: #cfe;</td>
+                    </tr>
+                </table>
+                <br/>
+                <br/>
+                There comes a context-help with the Classes editing dialog,
+                but it helps to know more
+                about <a href="http://www.htmlhelp.com/reference/css">CSS (Cascading Style Sheets)</a>
+                to fully utilize this feature.
+            </description>
+
+            <sample>
+                &lt;text&gt;&quot;Who... are you?&quot; you ask the monster.&lt;/text&gt;<br/>
+                &lt;text <em>class</em>=&quot;monster&quot;&gt;&quot;I'm Humba the evil,<br/>
+                <tab/><tab/>but you won't live long enough to tell anyone.&quot;&lt;/text&gt;<br/>
+                &lt;choice station=&quot;attack&quot;&gt;Attack&lt;/choice&gt;<br/>
+                &lt;choice station=&quot;retreat&quot;&gt;Retreat&lt;/choice&gt;<br/>
+            </sample>
+
+            <keywords>CSS2,layout</keywords>
+
+        </attribute>
+
+        <attribute name="check" link="ifState" />
+
+        <inline name="[state]" id="inlineState">
+            <description>
+                This inline value is used to output a state in the text (or in checks).<br/>
+                State/ Number/ String values starting with "qml" are set internally.
+                You should not start your own names with "qml", as it's reserved for future use.
+                <br/><br/>
+                <table class="sampleTable">
+                    <caption>Internal Numbers</caption>
+                    <tr>
+                        <th>Name</th>
+                        <th>Value description</th>
+                        <th>Command syntax</th>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlSeconds</td>
+                        <td class="commandDescription">The seconds that passed since the game was started.<br/>
+                                This value is reset at 30,000 seconds.</td>
+                        <td class="commandSyntax">[qmlSeconds]</td>
+                    </tr>
+                    <tr>
+                        <td class="command">qmlMinutes</td>
+                        <td class="commandDescription">The minutes that passed since the game was started. Reset at 500 minutes (over 8 hours).</td>
+                        <td class="commandSyntax">[qmlMinutes]</td>
+                    </tr>
+                </table>
+                <br/><br/>
+                Sometimes it is helpful to add zero's preceding a number, for example
+                to simulate a countdown clock. Use they keyword <em>format</em> and add a string
+                like <em>00</em>, for example [minutes format 00], which might be displayed
+                in text as "08" instead of just "8".
+                <br/><br/>
+                You may want to output "1st" instead of "1", for example "You roll the dice
+                for the <em>2nd</em> time". To do so, put the keyword <em>verbose</em> after the number
+                name, for example: [rolledDice verbose]
+            </description>
+
+            <sample>
+                &lt;text&gt;<br/>
+                <tab/>This is the end of the game.&lt;break/&gt;<br/>
+                <tab/>You scored &#091;<em>number</em> score&#093; points.&lt;break/&gt;<br/>
+                &lt;/text&gt;
+            </sample>
+        </inline>
+
+    </element>
+
+    <element name="break">
+        <description>
+            This empty (closed) element inserts a line break into the displayed text.
+        </description>
+
+        <sample>
+            &lt;text&gt;<br/>
+            <tab/>This room is...&lt;<em>break</em>/&gt;<br/>
+            <tab/>empty.<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;back&quot;&gt;Back&lt;/choice&gt;
+        </sample>
+
+        <attribute name="type" default="true">
+            <description>
+                This defines the exact appearance of the line break.
+            </description>
+    
+            <sample>
+                &lt;text&gt;<br/>
+                <tab/>This room is...&lt;break <em>type</em>="strong"/&gt;<br/>
+                <tab/>empty.<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice station=&quot;back&quot;&gt;Back&lt;/choice&gt;
+            </sample>
+
+            <value name="normal" default="true">
+                <description>
+                    This inserts a normal line break into the displayed text.
+                </description>
+        
+                <sample>
+                    &lt;text&gt;<br/>
+                    <tab/>This room is...&lt;break type="<em>normal</em>"/&gt;<br/>
+                    <tab/>empty.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;back&quot;&gt;Back&lt;/choice&gt;
+                </sample>
+            </value>
+
+            <value name="strong">
+                <description>
+                    This inserts a bigger line break into the displayed text.
+                </description>
+        
+                <sample>
+                    &lt;text&gt;<br/>
+                    <tab/>This room is...&lt;break type="<em>strong</em>"/&gt;<br/>
+                    <tab/>empty.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;back&quot;&gt;Back&lt;/choice&gt;
+                </sample>
+            </value>
+
+        </attribute>
+
+    </element>
+
+    <element name="emphasis">
+        <description>
+            Puts emphasisze on a text part.
+        </description>
+
+        <sample>
+            &lt;text&gt;You get &lt;<em>emphasis</em>&gt;very&lt;/<em>emphasis</em>&gt; tired<br/>
+            <tab/><tab/>and rest for a while.<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;treehouse&quot;&gt;Continue&lt;/choice&gt;
+        </sample>
+
+    </element>
+
+    <element name="strong">
+        <description>
+            Puts strong emphasisze on a text part.
+        </description>
+
+        <sample>
+            &lt;text&gt;You get &lt;<em>strong</em>&gt;very, very&lt;/<em>strong</em>&gt; tired<br/>
+            <tab/><tab/>and rest for a while.<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;treehouse&quot;&gt;Continue&lt;/choice&gt;
+        </sample>
+
+    </element>
+
+    <element name="display">
+        <description>
+            Wraps text that is displayed (on a screen, a sign, and so on).
+        </description>
+
+        <sample>
+            &lt;text&gt;<br/>
+            <tab/>You arrive at a shabby cot.&lt;break/&gt;<br/>
+            <tab/>In washed out rusty letters you decipher a wooden pub<br/>
+            <tab/>sign:&lt;break type=&quot;strong&quot;/&gt;<br/>
+            <tab/>&lt;<em>display</em>&gt;Rising Sun&lt;/<em>display</em>&gt;<br/>
+            <tab/>&lt;poem&gt;<br/>
+            <tab/><tab/>Fever, chills and muscle ache<br/>
+            <tab/><tab/>Makes you wanna take a break<br/>
+            <tab/><tab/>Come to greet the rising sun<br/>
+            <tab/><tab/>From inside here<br/>
+            <tab/><tab/>And have some fun<br/>
+            <tab/>&lt;/poem&gt;<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;bar&quot;&gt;You enter&lt;/choice&gt;<br/>
+            &lt;choice station=&quot;exit&quot;&gt;You wait&lt;/choice&gt;
+        </sample>
+
+    </element>
+
+    <element name="poem">
+        <description>
+            Wraps text that is a poem.
+        </description>
+
+        <sample>
+            &lt;text&gt;<br/>
+            <tab/>You arrive at a shabby cot.&lt;break/&gt;<br/>
+            <tab/>In washed out rusty letters you decipher a wooden pub<br/>
+            <tab/>sign:&lt;break type=&quot;strong&quot;/&gt;<br/>
+            <tab/>&lt;display&gt;Rising Sun&lt;/display&gt;<br/>
+            <tab/>&lt;<em>poem</em>&gt;<br/>
+            <tab/><tab/>Fever, chills and muscle ache<br/>
+            <tab/><tab/>Makes you wanna take a break<br/>
+            <tab/><tab/>Come to greet the rising sun<br/>
+            <tab/><tab/>From inside here<br/>
+            <tab/><tab/>And have some fun<br/>
+            <tab/>&lt;/<em>poem</em>&gt;<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;bar&quot;&gt;You enter&lt;/choice&gt;<br/>
+            &lt;choice station=&quot;exit&quot;&gt;You wait&lt;/choice&gt;
+        </sample>
+
+    </element>
+
+    <element name="link">
+        <description>
+            Inserts a hyperlink into the quest. You can link to Webpages, or use
+            email-links. By default, the links will open in a new window.
+        </description>
+        <sample>
+            &lt;text&gt;<br/>
+            <tab/>To get to know about QML-updates, visit the<br/>
+            <tab/>&lt;<em>link</em> to=&quot;http://www.outer-court.com/goodies/qml.htm&quot;&gt;QML Homepage&lt;/link&gt;.<br/>
+            &lt;/text&gt;
+        </sample>
+        <keywords>a href,reference,www (world wide web),e-mail,usenet,ftp</keywords>
+
+        <attribute name="to">
+            <description>
+                The address of the link.
+                <br/><br/>
+                <table class="sampleTable">
+                    <caption>Link samples</caption>
+                    <tr>
+                        <th>Value</th><th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="url"><a href="http://www.outer-court.com">http://www.outer-court.com</a></td>
+                        <td class="urlDescription">Links to a webpage</td>
+                    </tr>
+                    <tr>
+                        <td class="url"><a href="mailto:lenssen@hitnet.rwth-aachen.de">mailto:lenssen@hitnet.rwth-aachen.de</a></td>
+                        <td class="urlDescription">An email address that might start the email-client</td>
+                    </tr>
+                    <tr>
+                        <td class="url"><a href="news:rec.arts.int-fiction">news:rec.arts.int-fiction</a></td>
+                        <td class="urlDescription">A link to a newsgroup</td>
+                    </tr>
+                </table>
+                
+            </description>
+            <sample>
+                &lt;text&gt;
+                <tab/>To get to know about QML-updates, visit the<br/> 
+                <tab/>&lt;link <em>to</em>=&quot;http://www.outer-court.com/goodies/qml.htm&quot;&gt;QML Homepage&lt;/link&gt;.<br/>
+                &lt;/text&gt;
+            </sample>
+
+        </attribute>
+
+        <attribute name="target">
+            <description>
+                The link target sets where the link will open.<br/>
+                By default, it will be openend in a new window. If you set link to open in the
+                same window (by setting the target to "self"), a user following it will loose
+                the current state of the quest.
+            </description>
+            <sample>
+                &lt;text&gt;<br/>
+                <tab/>To get to know about QML-updates, visit the<br/>
+                <tab/>&lt;link<br/>
+                <tab/><tab/>to=&quot;http://www.outer-court.com/goodies/qml.htm&quot;<br/>
+                <tab/><tab/><em>target</em>="self" &gt;QML Homepage&lt;/link&gt;.<br/>
+                &lt;/text&gt;
+            </sample>
+
+            <value name="blank" default="true">
+                <description>
+                    The link will open in a new, blank (unused) window.
+                </description>
+                <sample>
+                    &lt;text&gt;<br/>
+                    <tab/>To get to know about QML-updates, visit the<br/>
+                    <tab/>&lt;link<br/>
+                    <tab/><tab/>to=&quot;http://www.outer-court.com/goodies/qml.htm&quot;<br/>
+                    <tab/><tab/>target="<em>blank</em>" &gt;QML Homepage&lt;/link&gt;.<br/>
+                    &lt;/text&gt;
+                </sample>
+            </value>
+
+            <value name="self">
+                <description>
+                    The link will open in the same window the quest is played in.<br/>
+                    All current states of the quest, as well as the location, will be lost.
+                </description>
+                <sample>
+                    &lt;text&gt;<br/>
+                    <tab/>To get to know about QML-updates, visit the<br/>
+                    <tab/>&lt;link<br/>
+                    <tab/><tab/>to=&quot;http://www.outer-court.com/goodies/qml.htm&quot;<br/>
+                    <tab/><tab/>target="<em>self</em>" &gt;QML Homepage&lt;/link&gt;.<br/>
+                    &lt;/text&gt;
+                </sample>
+            </value>
+
+            <value name="top">
+                <description>
+                    The link will replace a frameset as new top window.
+                </description>
+                <sample>
+                    &lt;text&gt;<br/>
+                    <tab/>To get to know about QML-updates, visit the<br/>
+                    <tab/>&lt;link<br/>
+                    <tab/><tab/>to=&quot;http://www.outer-court.com/goodies/qml.htm&quot;<br/>
+                    <tab/><tab/>target="<em>top</em>" &gt;QML Homepage&lt;/link&gt;.<br/>
+                    &lt;/text&gt;
+                </sample>
+            </value>
+
+        </attribute>
+
+    </element>
+
+</topic>
+
+<topic name="Station">
+
+    <description>
+        A comment is used to describe a station, or put developer information, or a note
+        for yourself in a station.<br/>
+        The include command makes it possible to include a single station in multiple other ones.
+    </description>
+
+    <sample>
+        &lt;comment&gt;Player gets the needed coins to bribe the guard later on.<br/>
+        &lt;/comment&gt;<br/>
+        &lt;text&gt;You open the treasure chest and find 5 gold coins.<br/>
+        &lt;/text&gt;<br/>
+        &lt;number name=&quot;gold&quot; value=&quot;+5&quot;/&gt;<br/>
+        [...]
+    </sample>
+
+    <element name="comment">
+        <description>
+            A comment regarding the station, to be put at the beginning of a station.<br/>
+            It's developer information which won't be seen by the player.
+        </description>
+        <sample>
+            &lt;<em>comment</em>&gt;Player gets the needed coins to bribe the guard later on.<br/>
+            &lt;/<em>comment</em>&gt;<br/>
+            &lt;text&gt;You open the treasure chest and find 5 gold coins.<br/>
+            &lt;/text&gt;<br/>
+            &lt;number name=&quot;gold&quot; value=&quot;+5&quot;/&gt;<br/>
+            [...]
+        </sample>
+
+    </element>
+
+    <element name="!--">
+        <description>
+            This will have QML ignore everything inbetween.
+        </description>
+        <sample>
+            &lt;text&gt;You open the treasure chest and find <em>&lt;!--</em> 10 silver coins <em>--&gt;</em> 5 gold coins.<br/>
+            &lt;/text&gt;<br/>
+            <em>&lt;!--</em> &lt;number name=&quot;silver coins&quot; value=&quot;+10&quot;/&gt;<br/> <em>--&gt;</em>
+            &lt;number name=&quot;gold&quot; value=&quot;+5&quot;/&gt;<br/>
+            [...]
+        </sample>
+    </element>
+
+    <element name="include">
+        <description>
+            Using this command, you can include one station in other ones.<br/>
+            Imagine you want to add a friend to the player, one that reacts differently
+            in different rooms, but always has certain "features" (can be talked to, and so on).
+            Instead of adding code to all the stations this person appears in, simply
+            add a single station which defines the "scope" of this one. Uses of <kbd>include</kbd>
+            can be:
+            <br/>
+            <ul>
+                <li>The player is Sherlock Holmes, <em>Dr. Watson</em> will stand by his side and answer questions</li>
+                <li>A <em>bridge</em> is slowly breaking apart, the player can walk on it and do different things in the meantime</li>
+                <li>A library contains many locations, but the play always has the option to leave through the <em>exit</em></li>
+                <li>An <em>automap</em> feature, displaying a certain image through-out the game or certain sub-locations.
+                </li>
+                <li>A <em>library</em> of certain functionality, which needs to be shared across many stations</li>
+            </ul>
+            <br/>
+            You can use as many include commands as you want.
+        </description>
+        
+        <sample>
+            &lt;<em>include</em> check=&quot;[player met dog]&quot;&gt;<br/>
+            <tab/>&lt;in station=&quot;house&quot;/&gt;<br/>
+            <tab/>&lt;in station=&quot;woods*&quot;/&gt;<br/>
+            <tab/>&lt;in station=&quot;castle*&quot;/&gt;<br/>
+            &lt;/<em>include</em>&gt;<br/>
+            &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+            &lt;/text&gt;<br/>
+            &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+        </sample>
+        <keywords>auto-map</keywords>
+
+        <attribute name="process">
+            <description>
+                How this station will be included (before, after, or exclusive) in relation
+                to the other station.
+            </description>
+
+            <sample>
+                &lt;include check=&quot;[player met dog]&quot;&gt;<br/>
+                <tab/>&lt;in station=&quot;house&quot; <em>process</em>="before"/&gt;<br/>
+                <tab/>&lt;in station=&quot;woods*&quot;/&gt;<br/>
+                <tab/>&lt;in station=&quot;castle*&quot;/&gt;<br/>
+                &lt;/include&gt;<br/>
+                &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+            </sample>
+
+            <value name="after" default="true">
+                <description>
+                    Station (including text and choices) will be included <em>after</em> the other station.
+                </description>
+
+                <sample>
+                    &lt;include check=&quot;[player met dog]&quot; process="<em>after</em>"&gt;<br/>
+                    <tab/>&lt;in station=&quot;house&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;woods*&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;castle*&quot;/&gt;<br/>
+                    &lt;/include&gt;<br/>
+                    &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+                </sample>
+            </value>
+
+            <value name="before">
+                <description>
+                    Station (including text and choices) will be included <em>before</em> the other station.
+                </description>
+    
+                <sample>
+                    &lt;include check=&quot;[player met dog]&quot; process="<em>before</em>"&gt;<br/>
+                    <tab/>&lt;in station=&quot;house&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;woods*&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;castle*&quot;/&gt;<br/>
+                    &lt;/include&gt;<br/>
+                    &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+                </sample>
+            </value>
+    
+            <value name="exclusive">
+                <description>
+                    Station (including text and choices) will completely replace the other station.
+                </description>
+    
+                <sample>
+                    &lt;include check=&quot;[player met dog]&quot; process="<em>exclusive</em>"&gt;<br/>
+                    <tab/>&lt;in station=&quot;house&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;woods*&quot;/&gt;<br/>
+                    <tab/>&lt;in station=&quot;castle*&quot;/&gt;<br/>
+                    &lt;/include&gt;<br/>
+                    &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+                </sample>
+            </value>
+    
+        </attribute>
+
+        <element name="in">
+            <description>
+                Sets the station to which this station will be included.
+                <br/>Use the wildcard
+                character "*" at the beginning, end, or both sides of the string (or exclusively)
+                to cover multiple (or all) stations at once.
+            </description>
+    
+            <sample>
+                &lt;include check=&quot;[player met dog]&quot;&gt;<br/>
+                <tab/>&lt;<em>in</em> station=&quot;house&quot;/&gt;<br/>
+                <tab/>&lt;<em>in</em> station=&quot;woods*&quot;/&gt;<br/>
+                <tab/>&lt;<em>in</em> station=&quot;castle*&quot;/&gt;<br/>
+                &lt;/include&gt;<br/>
+                &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                &lt;/text&gt;<br/>
+                &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+            </sample>
+    
+            <attribute name="station">
+                <description>
+                    The station in which this station will be included.
+                    <br/>Use the wildcard
+                    character "*" at the beginning, end, or both sides of the string (or exclusively)
+                    to cover multiple (or all) stations at once.<br/><br/>
+                    <table class="sampleTable">
+                        <caption>Wildcard samples</caption>
+                        <tr>
+                            <th>Station Value</th><th>Covers stations</th>
+                        </tr>
+                        <tr>
+                            <td class="command">libraryEntrance</td>
+                            <td>libraryEntrance</td>
+                        </tr>
+                        <tr>
+                            <td class="command">library*</td>
+                            <td>libraryEntrance<br/>libraryHall<br/>libraryExit</td>
+                        </tr>
+                        <tr>
+                            <td class="command">*entrance</td>
+                            <td>libraryEntrance<br/>castleEntrance<br/>hutEntrance</td>
+                        </tr>
+                        <tr>
+                            <td class="command">*library*</td>
+                            <td>libraryEntrance<br/>libraryHall<br/>libraryExit<br/>
+                                castleEntrance<br/>hutEntrance<br/>
+                                castleLibraryHall
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="command">*</td>
+                            <td>(All stations of the quest)
+                            </td>
+                        </tr>
+                    </table>
+                    <br/><br/>Station value comparisons are not case-sensitive.
+                </description>
+    
+                <sample>
+                    &lt;include check=&quot;[player met dog]&quot;&gt;<br/>
+                    <tab/>&lt;in <em>station</em>=&quot;house&quot;/&gt;<br/>
+                    <tab/>&lt;in <em>station</em>=&quot;woods*&quot;/&gt;<br/>
+                    <tab/>&lt;in <em>station</em>=&quot;castle*&quot;/&gt;<br/>
+                    &lt;/include&gt;<br/>
+                    &lt;text&gt;&lt;break type=&quot;strong&quot;/&gt;The dog is by your side.<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;choice station=&quot;petDog&quot;&gt;Pet the dog&lt;/choice&gt;
+                </sample>
+    
+            </attribute>
+    
+        </element>
+
+    </element>
+
+    <element name="embed">
+        <description>
+            This element directly or indirectly
+            includes a source (like another website, or a local file)
+            into the output. In XHTML, this will be in the form of an <strong>inline
+            frame</strong> if <kbd>merge="false"</kbd>, the default, is chosen. Using this feature
+            you can handle forms with database access, link a shockwave animation,
+            or anything else imaginable that'd exceed QML itself.<br />
+            <em>Note that if you choose
+            <kbd>merge="true"</kbd>, the target source needs to be in XML.</em>
+            <br />
+            <br />
+            <strong>Support for this element is optional</strong>:
+            conforming QML-Interpreters can disregard this element
+            for reasons of browser backwards-compatibility (inline frame output) and security
+            (reading from the file system).
+        </description>
+        <sample>
+            &lt;text&gt;
+            The following shows the QML website:&lt;break/&gt;<br/>
+            &lt;/text&gt;<br/>
+            &lt;<em>embed</em> source=&quot;http://questml.com&quot;/&gt;
+        </sample>
+
+        <attribute name="source">
+            <description>
+                This attribute defines the target source of the file you want
+                to embed.
+            </description>
+            <sample>
+                &lt;text&gt;
+                The following shows the QML website:&lt;break/&gt;<br/>
+                &lt;/text&gt;<br/>
+                &lt;embed <em>source</em>=&quot;http://questml.com&quot;/&gt;
+            </sample>
+        </attribute>
+
+        <attribute name="merge">
+            <description>
+                If you want to combine the target file directly within the output,
+                set this to true. If so, the file needs to be in XML.
+            </description>
+            <sample>
+                &lt;text&gt;
+                The following shows an XML file:&lt;break/&gt;<br/>
+                &lt;/text&gt;<br/>
+                &lt;embed source=&quot;myfile.xml&quot; <em>merge</em>="true"/&gt;
+            </sample>
+
+            <value name="true">
+                <description>
+                    Combines the target file directly with the output.<br />
+                    <em>Note that the file needs to be in XML.</em>
+                </description>
+                <sample>
+                    &lt;text&gt;
+                    The following shows an XML file:&lt;break/&gt;<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;embed source=&quot;myfile.xml&quot; merge="<em>true</em>"/&gt;
+                </sample>
+            </value>
+
+            <value name="false" default="true">
+                <description>
+                    Combines the target file indirectly with the output,
+                    using an inline frame (iframe element) in XHTML. The file type can be of
+                    any kind a browser could allow.
+                </description>
+                <sample>
+                    &lt;text&gt;
+                    The following shows the QML website:&lt;break/&gt;<br/>
+                    &lt;/text&gt;<br/>
+                    &lt;embed source=&quot;http://questml.com&quot; merge="<em>false</em>"/&gt;
+                </sample>
+            </value>
+
+        </attribute>
+    </element>
+
+    <element name="table">
+        <description>
+            Use this element to insert a table into the page. Tables should
+            not be used to layout the page, but to structure the information
+            logically. Use the <kbd>caption</kbd> element for the table title, the <kbd>tr</kbd>
+            element for rows, and <kbd>th</kbd> for headings/ <kbd>td</kbd> for normal table cells.
+            The attributes <kbd>colspan</kbd> and <kbd>rowspan</kbd> make it possible to cover
+            a single cell across multiple units of the table grid.<br/>Note that
+            stations with tables can be problematic for smaller displays.
+        </description>
+        <sample>
+            &lt;<em>table</em>&gt;<br/>
+            <tab/>&lt;caption&gt;Shop items&lt;/caption&gt;<br/>
+            <tab/>&lt;tr&gt;<br/>
+            <tab/><tab/>&lt;th&gt;Magic items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+            <tab/><tab/>&lt;th&gt;Other items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+            <tab/>&lt;/tr&gt;<br/>
+            <tab/>&lt;tr&gt;<br/>
+            <tab/><tab/>&lt;td&gt;Staff&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;12&lt;/td&gt;<br/>
+            <tab/><tab/>&lt;td&gt;Sword&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;30&lt;/td&gt;<br/>
+            <tab/>&lt;/tr&gt;<br/>
+            <tab/>&lt;tr&gt;<br/>
+            <tab/><tab/>&lt;td&gt;Healing potion&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;3&lt;/td&gt;<br/>
+            <tab/><tab/>&lt;td&gt;Bread&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;1&lt;/td&gt;<br/>
+            <tab/>&lt;/tr&gt;<br/>
+            &lt;/<em>table</em>&gt;<br/>
+        </sample>
+
+        <element name="caption">
+            <description>
+                The title of the table.
+            </description>
+            <sample>
+                &lt;table&gt;<br/>
+                <tab/>&lt;<em>caption</em>&gt;Shop items&lt;/<em>caption</em>&gt;<br/>
+                <tab/>&lt;tr&gt;<br/>
+                <tab/><tab/>&lt;th&gt;Magic items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                <tab/><tab/>&lt;th&gt;Other items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                <tab/>&lt;/tr&gt;<br/>
+                <tab/>&lt;tr&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Staff&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;12&lt;/td&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Sword&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;30&lt;/td&gt;<br/>
+                <tab/>&lt;/tr&gt;<br/>
+                <tab/>&lt;tr&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Healing potion&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;3&lt;/td&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Bread&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;1&lt;/td&gt;<br/>
+                <tab/>&lt;/tr&gt;<br/>
+                &lt;/table&gt;<br/>
+            </sample>
+        </element>
+
+        <element name="tr">
+            <description>
+                The row of the table.
+            </description>
+            <sample>
+                &lt;table&gt;<br/>
+                <tab/>&lt;caption&gt;Shop items&lt;/caption&gt;<br/>
+                <tab/>&lt;<em>tr</em>&gt;<br/>
+                <tab/><tab/>&lt;th&gt;Magic items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                <tab/><tab/>&lt;th&gt;Other items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                <tab/>&lt;/<em>tr</em>&gt;<br/>
+                <tab/>&lt;<em>tr</em>&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Staff&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;12&lt;/td&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Sword&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;30&lt;/td&gt;<br/>
+                <tab/>&lt;/<em>tr</em>&gt;<br/>
+                <tab/>&lt;<em>tr</em>&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Healing potion&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;3&lt;/td&gt;<br/>
+                <tab/><tab/>&lt;td&gt;Bread&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;1&lt;/td&gt;<br/>
+                <tab/>&lt;/<em>tr</em>&gt;<br/>
+                &lt;/table&gt;<br/>
+            </sample>
+
+            <element name="th">
+                <description>
+                    A cell heading of the table.
+                </description>
+                <sample>
+                    &lt;table&gt;<br/>
+                    <tab/>&lt;caption&gt;Shop items&lt;/caption&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;<em>th</em>&gt;Magic items&lt;/<em>th</em>&gt;&lt;<em>th</em> class=&quot;price&quot;&gt;Price&lt;/<em>th</em>&gt;<br/>
+                    <tab/><tab/>&lt;<em>th</em>&gt;Other items&lt;/<em>th</em>&gt;&lt;<em>th</em> class=&quot;price&quot;&gt;Price&lt;/<em>th</em>&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;td&gt;Staff&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;12&lt;/td&gt;<br/>
+                    <tab/><tab/>&lt;td&gt;Sword&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;30&lt;/td&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;td&gt;Healing potion&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;3&lt;/td&gt;<br/>
+                    <tab/><tab/>&lt;td&gt;Bread&lt;/td&gt;&lt;td class=&quot;price&quot;&gt;1&lt;/td&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    &lt;/table&gt;<br/>
+                </sample>
+
+                <attribute name="rowspan">
+                    <description>
+                        The row-span (how many units of the table grid a cell covers).
+                    </description>
+                    <sample>
+                        &lt;table&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;th <em>rowspan</em>=&quot;2&quot;&gt;Hello world&lt;/td&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;Hello&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;World&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        &lt;/table&gt;<br/>
+                    </sample>
+                </attribute>
+
+                <attribute name="colspan">
+                    <description>
+                        The column-span (how many units of the table grid a cell covers).
+                    </description>
+                    <sample>
+                        &lt;table&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;th <em>colspan</em>=&quot;2&quot;&gt;Hello world&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;Hello&lt;/td&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;World&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        &lt;/table&gt;
+                    </sample>
+                </attribute>
+
+                <attribute name="class" link="class"/>
+
+            </element>
+
+            <element name="td">
+                <description>
+                    Normal cells of the table.
+                </description>
+                <sample>
+                    &lt;table&gt;<br/>
+                    <tab/>&lt;caption&gt;Shop items&lt;/caption&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;th&gt;Magic items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                    <tab/><tab/>&lt;th&gt;Other items&lt;/th&gt;&lt;th class=&quot;price&quot;&gt;Price&lt;/th&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;<em>td</em>&gt;Staff&lt;/<em>td</em>&gt;&lt;<em>td</em> class=&quot;price&quot;&gt;12&lt;/<em>td</em>&gt;<br/>
+                    <tab/><tab/>&lt;<em>td</em>&gt;Sword&lt;/<em>td</em>&gt;&lt;<em>td</em> class=&quot;price&quot;&gt;30&lt;/<em>td</em>&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    <tab/>&lt;tr&gt;<br/>
+                    <tab/><tab/>&lt;<em>td</em>&gt;Healing potion&lt;/<em>td</em>&gt;&lt;<em>td</em> class=&quot;price&quot;&gt;3&lt;/<em>td</em>&gt;<br/>
+                    <tab/><tab/>&lt;<em>td</em>&gt;Bread&lt;/<em>td</em>&gt;&lt;<em>td</em> class=&quot;price&quot;&gt;1&lt;/<em>td</em>&gt;<br/>
+                    <tab/>&lt;/tr&gt;<br/>
+                    &lt;/table&gt;<br/>
+                </sample>
+
+                <attribute name="rowspan">
+                    <description>
+                        The row-span (how many units of the table grid a cell covers).
+                    </description>
+                    <sample>
+                        &lt;table&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;th <em>rowspan</em>=&quot;2&quot;&gt;Hello world&lt;/td&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;Hello&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;World&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        &lt;/table&gt;<br/>
+                    </sample>
+                </attribute>
+
+                <attribute name="colspan">
+                    <description>
+                        The column-span (how many units of the table grid a cell covers).
+                    </description>
+                    <sample>
+                        &lt;table&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;th <em>colspan</em>=&quot;2&quot;&gt;Hello world&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        <tab/>&lt;tr&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;Hello&lt;/td&gt;<br/>
+                        <tab/><tab/>&lt;td&gt;World&lt;/td&gt;<br/>
+                        <tab/>&lt;/tr&gt;<br/>
+                        &lt;/table&gt;
+                    </sample>
+                </attribute>
+
+                <attribute name="class" link="class"/>
+
+            </element>
+
+            <attribute name="class" link="class"/>
+    
+        </element>
+
+        <attribute name="class" link="class"/>
+    </element>
+
+</topic>
+
+</syntax>

@@ -1,0 +1,17 @@
+a
+{
+    color: #000;
+    text-decoration: none;
+    font-style: italic;
+}
+
+a img
+{
+    border: 0;
+}
+
+.navigation,
+.subNavigation
+{
+    display: none;
+}

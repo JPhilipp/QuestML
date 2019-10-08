@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<html>
+    <head>
+        <title>QML</title>
+        <meta name="expires" content="0" />
+        <link rel="stylesheet" href="style/quest.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="style/components.css" type="text/css" media="screen" />
+    </head>
+    <body id="bodyNode">
+        <div id="statusNode"></div>
+        <div id="displayNode"></div>
+    </body>
+</html>

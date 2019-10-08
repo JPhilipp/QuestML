@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest>
+
+<about>
+    <title>Your title</title>
+    <author>Your name</author>
+</about>
+
+<station id="start">
+<text>Enter your text here.
+</text>
+</station>
+
+</quest>
+

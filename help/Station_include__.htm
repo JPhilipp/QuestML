@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Element "include" [QML Syntax]</title>
+    <link rel="stylesheet" href="style/screen.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="style/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen" />
+    auto-map
+</head>
+<body>
+
+<h1><img src="file/logo.gif" alt="QML - Create Your Own Adventure" title="" /></h1>
+
+<div class="content">
+
+<!-- moreInfoTable -->
+<table class="moreInfoTable">
+<tr>
+    <th class="syntaxName">Name</th>
+    <th>Topic</th>
+    <th>Used in</th>
+    <th>Type</th>
+</tr>
+<tr>
+    <td class="syntaxName">include</td>
+    <td><img src="icon/station.gif" alt="" />
+            <a href="Station___.htm">Station</a></td>
+    <td>station</td>
+    <td><img src="icon/element.gif" alt="" /> <a href="xml_element.htm">element</a></td>
+</tr>
+</table>
+<!-- /moreInfoTable -->
+
+<div class="description">
+            Using this command, you can include one station in other ones.<br />
+            Imagine you want to add a friend to the player, one that reacts differently
+            in different rooms, but always has certain "features" (can be talked to, and so on).
+            Instead of adding code to all the stations this person appears in, simply
+            add a single station which defines the "scope" of this one. Uses of <kbd>include</kbd>
+            can be:
+            <br /><ul>
+	<li>The player is Sherlock Holmes, <em>Dr. Watson</em> will stand by his side and answer questions</li>
+	<li>A <em>bridge</em> is slowly breaking apart, the player can walk on it and do different things in the meantime</li>
+	<li>A library contains many locations, but the play always has the option to leave through the <em>exit</em></li>
+	<li>An <em>automap</em> feature, displaying a certain image through-out the game or certain sub-locations.
+                </li>
+	<li>A <em>library</em> of certain functionality, which needs to be shared across many stations</li>
+</ul><br />
+            You can use as many include commands as you want.
+        
+</div>
+
+<div class="sampleIntro">Sample:</div>
+<code>
+            &lt;<em>include</em> check="<span class="syntaxInline">[player met dog]</span>"&gt;<br />&nbsp;&nbsp;&nbsp;&lt;in station="house"/&gt;<br />&nbsp;&nbsp;&nbsp;&lt;in station="woods*"/&gt;<br />&nbsp;&nbsp;&nbsp;&lt;in station="castle*"/&gt;<br />
+            &lt;/<em>include</em>&gt;<br />
+            <span class="syntaxText">&lt;text&gt;&lt;break type="strong"/&gt;The dog is by your side.<br />
+            &lt;/text&gt;</span><br />
+            <span class="syntaxChoice">&lt;choice station="petDog"&gt;Pet the dog&lt;/choice&gt;</span>
+        
+</code>
+
+<div class="subnodes"><p class="overviewList"><strong>Attributes:</strong> <a href="Station_include_process_.htm"><img src="icon/attribute.gif" alt="" /> process</a></p>
+</div>
+
+</div>
+
+<div class="navigation">
+    <a href="http://questml.com">Home</a> <img src="file/bullet.gif" alt="|" />
+    <a href="http://questml.com/editor/">Editor</a> <img src="file/bullet.gif" alt="|" />
+    <a href="http://questml.com/tutorial/">Tutorial</a> <img src="file/bullet.gif" alt="|" />
+    <a href="index.htm" class="current">Syntax</a> <img src="file/bullet.gif" alt="|" />
+    <a href="http://questml.com/quests/">Quests</a> <img src="file/bullet.gif" alt="|" />
+    <a href="http://questml.com/forum/">Forum</a> <img src="file/bullet.gif" alt="|" />
+    <a href="mailto:info@questml.com">Email</a>
+</div>
+
+<div class="subNavigation">
+    <div class="last"><a href="index.htm">Overview</a></div>
+
+    <div class="seperator">Topics:</div>
+    <div><a href="Media___.htm"><img src="icon/media.gif" alt="" /> Media</a></div>
+    <div><a href="States___.htm"><img src="icon/states.gif" alt="" /> States</a></div>
+    <div><a href="Branching___.htm"><img src="icon/branching.gif" alt="" /> Branching</a></div>
+    <div><a href="Text___.htm"><img src="icon/text.gif" alt="" /> Text</a></div>
+    <div class="last"><a href="Station___.htm"><img src="icon/station.gif" alt="" /> Station</a></div>
+
+    <div class="seperator">XML:</div>
+    <div><a href="xml_element.htm"><img src="icon/element.gif" alt="" /> Element</a></div>
+    <div><a href="xml_attribute.htm"><img src="icon/attribute.gif" alt="" /> Attribute</a></div>
+    <div class="last"><a href="xml_value.htm"><img src="icon/value.gif" alt="" /> Value</a></div>
+</div>
+
+</body></html>
+

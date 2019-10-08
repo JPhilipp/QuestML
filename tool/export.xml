@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<files>
+    <script type="client">
+        <file source="script\quest.dtd"/>
+        <file source="script\main.vbs"/>
+        <file source="script\misc.vbs"/>
+        <file source="script\class_quest_handler.vbs"/>
+        <file source="script\class_state_handler.vbs"/>
+        <file source="script\class_states_string.vbs"/>
+        <file source="script\class_inline_function.vbs"/>
+    </script>
+    <style>
+        <file source="style\quest.css"/>
+    </style>
+</files>

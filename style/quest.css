@@ -1,0 +1,169 @@
+body
+{
+    cursor: default;
+}
+
+.footnote
+{
+    font-size: 85%;
+}
+
+ul
+{
+    margin-left: 20px;
+    list-style-type: square;
+}
+
+li p
+{
+    margin-bottom: 12px;
+}
+
+.display
+{
+    font-variant: small-caps;
+    letter-spacing: 3px;
+}
+
+.poem
+{
+    font-style: italic;
+}
+
+img
+{
+    border: 0;
+}
+
+.cover h1
+{
+    font-size: 150%;
+}
+
+/*** station display ***/
+
+#stateDisplay
+{
+    position: absolute;
+    left: 470px;
+    top: 200px;
+    width: 300px;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.xmlDisplay,
+.numbersDisplay,
+.stringsDisplay,
+.statesDisplay
+{
+    border: 1px;
+    border-color: #aaa;
+    border-style: solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    padding-top: 4px;
+    padding-bottom: 10px;
+    height: 110px;
+    overflow: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.stringsDisplay
+{
+    border-bottom: 1px solid black;
+}
+
+.stationDisplay
+{
+    border: 1px solid #000;
+    margin-bottom: 0;
+}
+
+.stationDisplay ul
+{
+    padding-left: 30px;
+}
+
+#stateDisplay h1
+{
+    text-align: center;
+    font-size: 15px;
+    padding: 5px;
+    background-color: #eee;
+}
+
+#stateDisplay h2
+{
+    font-size: 15px;
+    padding-left: 8px;
+    letter-spacing: 1px;
+}
+
+.listDescript
+{
+    font-style: italic;
+    font-size: 13px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#stateDisplay p,
+#stateDisplay ul
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#stateDisplay li
+{
+    list-style-type: square;
+    margin-left: 15px;
+}
+
+#stateDisplay p
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+}
+
+.xmlDisplay
+{
+    padding: 4px;
+}
+
+.closeDisplay
+{
+    font-style: italic;
+    text-decoration: underline;
+    text-align: right;
+    margin: 5px;
+    font-size: 13px;
+    cursor: hand;
+}
+
+#statusNode
+{
+    width: 500px;
+    height: 20px;
+    display: none;
+}
+
+caption
+{
+    font-weight: bold;
+}
+
+td,
+th,
+caption
+{
+    padding: 6px;
+}

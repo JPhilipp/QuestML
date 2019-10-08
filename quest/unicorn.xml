@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE quest SYSTEM "../script/quest.dtd">
+<quest debug="true">
+
+<about>
+    <title>Your title</title>
+    <author>Your name</author>
+</about>
+
+
+<station id="unicorn continue">
+<text>The End</text>
+</station>
+
+
+<station id="start">
+<text>"What's my name?" she asks.
+</text><input station="the answer" name="the animal">You answer.</input>
+</station>
+
+
+<station id="the answer">
+<if check="[the animal] = 'unicorn'">
+<text>"Oh, you do know me! Indeed, I'm a [the animal]." she cries.
+</text>
+<state name="knows unicorn"/>
+<choice station="unicorn continue">Continue</choice>
+</if>
+<else>
+<text>"So that's what you take me for, ... [the animal]?" she sighs.
+</text>
+<choice station="unicorn continue">Continue</choice>
+</else>
+</station>
+
+
+
+</quest>
+

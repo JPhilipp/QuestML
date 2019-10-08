@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Try to associate languages, as currently not all shown
+*.py linguist-language=Python
+*.php4 linguist-language=PHP
+*.php5 linguist-language=PHP

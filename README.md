@@ -6,6 +6,12 @@
 
 <img src="Screenshot.gif">
 
+&nbsp;
+
+<img src="Overview.png">
+
+&nbsp;
+
 In QML, you can create quests using either the editor pictured above, or by manually writing in the QL, or the XML formats. Adventures can have text, images, variables functionality like randomization, and much more. Here's a QL example adventure:
 
 ```
